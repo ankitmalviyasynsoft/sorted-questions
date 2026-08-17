@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechPrep Hub | Comprehensive Technical Interview Questions & Solutions</title>
+  <meta name="description" content="Browse, filter, and master 220+ real technical interview questions categorized by HTML, CSS, JavaScript, React, System Design, Node.js, and top tech companies.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Ambient Dynamic Glow Background -->
+  <div class="ambient-glow">
+    <div class="ambient-blob ambient-blob-1"></div>
+    <div class="ambient-blob ambient-blob-2"></div>
+    <div class="ambient-blob ambient-blob-3"></div>
+  </div>
+
+  <div class="app-wrapper">
+    <!-- Navbar Header -->
+    <header class="navbar">
+      <a href="#" class="brand" title="TechPrep Hub Home">
+        <div class="brand-icon">
+          <i class="fa-solid fa-code-compare"></i>
+        </div>
+        <div>
+          <h1 class="brand-title">TechPrep Matrix</h1>
+          <p class="brand-subtitle">Curated Interview Question Bank</p>
+        </div>
+      </a>
+
+      <div class="nav-actions">
+        <button id="openAddModalBtn" class="action-btn primary-btn glow" title="Add a new question to the bank">
+          <i class="fa-solid fa-circle-plus"></i> <span>Add Question</span>
+        </button>
+
+        <button id="exportDataBtn" class="action-btn" title="Export / Download updated questions JSON">
+          <i class="fa-solid fa-file-arrow-down"></i> <span>Export JSON</span>
+        </button>
+
+        <button id="randomQuestionBtn" class="action-btn" title="Surprise me with a random question">
+          <i class="fa-solid fa-shuffle"></i> <span>Random Question</span>
+        </button>
+
+        <button id="bookmarkFilterBtn" class="action-btn" title="View saved bookmarks">
+          <i class="fa-regular fa-star"></i> <span>Bookmarks</span>
+        </button>
+
+        <button id="themeToggleBtn" class="theme-btn" title="Toggle dark/light theme">
+          <i id="themeIcon" class="fa-solid fa-moon"></i>
+          <span id="themeText">Dark</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Interactive Dashboard / Stats Banner -->
+    <section class="stats-banner" aria-label="Statistics Dashboard">
+      <div class="stat-card">
+        <div class="stat-icon-wrapper stat-icon-purple">
+          <i class="fa-solid fa-list-check"></i>
+        </div>
+        <div>
+          <div id="totalQuestionsVal" class="stat-val">223</div>
+          <div class="stat-lbl">Total Questions</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon-wrapper stat-icon-pink">
+          <i class="fa-solid fa-filter"></i>
+        </div>
+        <div>
+          <div id="filteredQuestionsVal" class="stat-val">223</div>
+          <div class="stat-lbl">Active Match</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon-wrapper stat-icon-amber">
+          <i class="fa-solid fa-building"></i>
+        </div>
+        <div>
+          <div id="companiesCountVal" class="stat-val">31</div>
+          <div class="stat-lbl">Top Companies</div>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-icon-wrapper stat-icon-emerald">
+          <i class="fa-solid fa-circle-check"></i>
+        </div>
+        <div style="width: 100%;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline;">
+            <div id="masteredVal" class="stat-val">0</div>
+            <span style="font-size: 0.75rem; color: var(--text-muted); font-weight: 600;">Mastered</span>
+          </div>
+          <div class="progress-container">
+            <div id="masteredProgressFill" class="progress-fill"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Grid Layout -->
+    <main class="app-grid">
+      <!-- Sidebar Filters Panel -->
+      <aside class="sidebar" aria-label="Filters">
+        <div class="filter-header">
+          <h2 class="filter-title"><i class="fa-solid fa-sliders"></i> Filter Questions</h2>
+          <button id="resetFiltersBtn" class="reset-link">Reset All</button>
+        </div>
+
+        <!-- Search Input -->
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          <input type="text" id="searchInput" class="search-input" placeholder="Search keywords, ID, or company..." autocomplete="off">
+          <button id="clearSearchBtn" class="clear-search-btn" title="Clear search"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="filter-group">
+          <div class="filter-header">
+            <h3 class="filter-title"><i class="fa-solid fa-folder-open"></i> Category</h3>
+          </div>
+          <div id="categoryList" class="category-list">
+            <!-- Category buttons dynamically populated -->
+          </div>
+        </div>
+
+        <!-- Company Filter -->
+        <div class="filter-group">
+          <div class="filter-header">
+            <h3 class="filter-title"><i class="fa-solid fa-building"></i> Company</h3>
+          </div>
+          <div class="company-search-wrapper">
+            <select id="companySelect" class="company-select">
+              <option value="ALL">🏢 All Companies</option>
+            </select>
+          </div>
+          <div id="companyTagsCloud" class="company-tags-cloud">
+            <!-- Top company pills populated dynamically -->
+          </div>
+        </div>
+
+        <!-- Difficulty Filter -->
+        <div class="filter-group">
+          <div class="filter-header">
+            <h3 class="filter-title"><i class="fa-solid fa-signal"></i> Difficulty</h3>
+          </div>
+          <div class="difficulty-pills">
+            <button class="diff-btn active" data-diff="Easy">Easy</button>
+            <button class="diff-btn active" data-diff="Medium">Medium</button>
+            <button class="diff-btn active" data-diff="Hard">Hard</button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Question Cards Grid & Toolbar Container -->
+      <section class="content-area">
+        <!-- Content Toolbar -->
+        <div class="content-header">
+          <div class="results-info">
+            <span id="resultsCount" class="results-count">Showing Questions</span>
+            <div id="activeFiltersBar" class="active-filters-bar"></div>
+          </div>
+
+          <div class="view-options">
+            <select id="sortSelect" class="sort-select" title="Sort Questions">
+              <option value="default">Sort: Default (ID)</option>
+              <option value="category">Sort: Category Name</option>
+              <option value="difficulty">Sort: Difficulty Level</option>
+              <option value="companies">Sort: Most Asked (Companies)</option>
+            </select>
+
+            <div class="view-mode-toggle">
+              <button id="gridModeBtn" class="view-btn active" title="Grid View"><i class="fa-solid fa-border-all"></i></button>
+              <button id="listModeBtn" class="view-btn" title="List View"><i class="fa-solid fa-list"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cards Container -->
+        <div id="questionsGrid" class="questions-grid">
+          <!-- Question cards dynamically rendered by app.js -->
+        </div>
+      </section>
+    </main>
+  <!-- Add Question Modal -->
+  <div id="addQuestionModal" class="modal-overlay" aria-hidden="true">
+    <div class="modal-container" role="dialog" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <div class="modal-title-wrapper">
+          <div class="modal-title-icon">
+            <i class="fa-solid fa-circle-plus"></i>
+          </div>
+          <div>
+            <h2 id="modalTitle" class="modal-title">Add New Question</h2>
+            <p class="modal-subtitle">Contribute a question with full metadata to the question bank</p>
+          </div>
+        </div>
+        <button id="closeModalBtn" class="modal-close-btn" title="Close modal">&times;</button>
+      </div>
+
+      <form id="addQuestionForm" class="modal-form">
+        <div class="modal-body">
+          <!-- Form Row 1: Category & Custom Category & ID -->
+          <div class="form-row">
+            <div class="form-group flex-2">
+              <label for="newCatSelect" class="form-label">
+                <i class="fa-solid fa-folder-open"></i> Category <span class="required">*</span>
+              </label>
+              <select id="newCatSelect" class="form-control" required>
+                <option value="" disabled selected>Select Category</option>
+                <option value="__NEW_CATEGORY__">➕ Add New Category...</option>
+              </select>
+            </div>
+
+            <div id="customCatGroup" class="form-group flex-2" style="display: none;">
+              <label for="newCustomCatInput" class="form-label">
+                <i class="fa-solid fa-folder-plus"></i> New Category Name <span class="required">*</span>
+              </label>
+              <input type="text" id="newCustomCatInput" class="form-control" placeholder="e.g. Docker, GraphQL, Python">
+            </div>
+
+            <div class="form-group flex-1">
+              <label for="newQuestionId" class="form-label">
+                <i class="fa-solid fa-hashtag"></i> Question ID <span class="required">*</span>
+              </label>
+              <div class="id-input-wrapper">
+                <input type="text" id="newQuestionId" class="form-control mono" placeholder="e.g. js-056" required>
+                <button type="button" id="autoGenIdBtn" class="action-sub-btn" title="Auto-generate next ID">
+                  <i class="fa-solid fa-wand-magic-sparkles"></i> Auto
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form Row 2: Difficulty Radio Selector -->
+          <div class="form-group">
+            <label class="form-label">
+              <i class="fa-solid fa-signal"></i> Difficulty Level <span class="required">*</span>
+            </label>
+            <div class="diff-radio-group">
+              <label class="diff-radio-label easy">
+                <input type="radio" name="difficulty" value="Easy" checked>
+                <span><i class="fa-solid fa-leaf"></i> Easy</span>
+              </label>
+              <label class="diff-radio-label medium">
+                <input type="radio" name="difficulty" value="Medium">
+                <span><i class="fa-solid fa-gauge-high"></i> Medium</span>
+              </label>
+              <label class="diff-radio-label hard">
+                <input type="radio" name="difficulty" value="Hard">
+                <span><i class="fa-solid fa-fire"></i> Hard</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Form Row 3: Question Text -->
+          <div class="form-group">
+            <label for="newQuestionText" class="form-label">
+              <i class="fa-solid fa-file-pen"></i> Question Statement <span class="required">*</span>
+            </label>
+            <textarea id="newQuestionText" class="form-control textarea" rows="3" placeholder="Enter the interview question here. Tip: Use `code` for code terms." required></textarea>
+            <div class="form-hint">Tip: Wrap code terms in backticks like <code>`var`</code> or <code>`useMemo()`</code> for clean syntax rendering.</div>
+          </div>
+
+          <!-- Form Row 4: Companies Asked -->
+          <div class="form-group">
+            <label for="newCompanyInput" class="form-label">
+              <i class="fa-solid fa-building"></i> Companies Asked In (Optional)
+            </label>
+            <div class="company-tag-input-box">
+              <input type="text" id="newCompanyInput" class="form-control" placeholder="Type company name & press Enter or click Add (e.g. Google, Neosoft)">
+              <button type="button" id="addCompanyTagBtn" class="action-sub-btn"><i class="fa-solid fa-plus"></i> Add Tag</button>
+            </div>
+            <div class="quick-companies-label">Quick Click Popular Companies:</div>
+            <div id="quickCompanyPills" class="quick-company-pills">
+              <!-- Dynamically populated company pills -->
+            </div>
+            <div id="selectedCompaniesContainer" class="selected-companies-tags">
+              <!-- Added company tag pills appear here -->
+            </div>
+          </div>
+
+          <!-- Form Row 5: Optional Answer / Solution -->
+          <div class="form-group">
+            <label for="newAnswerText" class="form-label">
+              <i class="fa-solid fa-lightbulb"></i> Solution / Explanation / Answer Notes (Optional)
+            </label>
+            <textarea id="newAnswerText" class="form-control textarea" rows="3" placeholder="Provide a brief solution summary, code snippet, or explanation for this question..."></textarea>
+          </div>
+
+          <!-- Form Row 6: Live Card Preview -->
+          <div class="form-group preview-group">
+            <label class="form-label"><i class="fa-solid fa-eye"></i> Live Question Card Preview</label>
+            <div id="modalCardPreview" class="question-card preview-card">
+              <!-- Live Card Preview -->
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" id="cancelModalBtn" class="action-btn secondary-btn">Cancel</button>
+          <button type="button" id="resetFormBtn" class="action-btn text-btn">Reset Form</button>
+          <button type="submit" id="submitQuestionBtn" class="action-btn primary-btn glow">
+            <i class="fa-solid fa-paper-plane"></i> Save Question
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <!-- Floating Back to Top Button -->
+  <button id="backToTopBtn" class="back-to-top" title="Back to Top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- JS Engine -->
+  <script src="app.js"></script>
+</body>
+</html>

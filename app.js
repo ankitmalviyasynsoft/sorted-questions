@@ -1,0 +1,3173 @@
+/* ==========================================================================
+   Interview Questions Portal - Application Engine
+   ========================================================================== */
+
+const FALLBACK_DATA = {
+  "categories": [
+    {
+      "name": "JavaScript",
+      "questions": [
+        {
+          "id": "js-001",
+          "question": "What is JavaScript and why do we use it?",
+          "difficulty": "Easy",
+          "companies": ["Inodeed", "Sketchbramha", "Questions Komal"]
+        },
+        {
+          "id": "js-002",
+          "question": "What are the data types in JavaScript?",
+          "difficulty": "Easy",
+          "companies": ["Inodeed", "Startappss", "Questions Komal"]
+        },
+        {
+          "id": "js-003",
+          "question": "Difference between var, let, and const.",
+          "difficulty": "Easy",
+          "companies": ["Inodeed", "UNKNOWN", "Chapter247", "Questions Komal", "Virendra Sir's Interview"]
+        },
+        {
+          "id": "js-004",
+          "question": "What is the Event Loop and how does it work?",
+          "difficulty": "Hard",
+          "companies": ["Thought Win", "Thought Win Second", "UNKNOWN", "Virendra Sir's Interview", "Golden Eagle", "Questions Komal", "Skyline Infosyam", "Protocol Zone"]
+        },
+        {
+          "id": "js-005",
+          "question": "What is a closure in JavaScript and what are its advantages?",
+          "difficulty": "Medium",
+          "companies": ["Inodeed", "newscape consultansy", "Neosoft", "Questions Komal", "Almabay", "Virendra Sir's Interview"]
+        },
+        {
+          "id": "js-006",
+          "question": "What is hoisting in JavaScript?",
+          "difficulty": "Medium",
+          "companies": ["Neosoft", "Questions Komal", "Virendra Sir's Interview"]
+        },
+        {
+          "id": "js-007",
+          "question": "What is a callback function and what is callback hell?",
+          "difficulty": "Medium",
+          "companies": ["Inodeed", "UNKNOWN", "Questions Komal", "newscape consultansy", "Neosoft", "Almabay"]
+        },
+        {
+          "id": "js-008",
+          "question": "What are Promises in JavaScript?",
+          "difficulty": "Medium",
+          "companies": ["Thought Win", "Neosoft", "UNKNOWN", "Virendra Sir's Interview", "Golden Eagle", "Questions Komal", "newscape consultansy", "Almabay", "Agilepoint", "Protocol Zone", "Sketchbramha"]
+        },
+        {
+          "id": "js-009",
+          "question": "What is async/await in JavaScript?",
+          "difficulty": "Medium",
+          "companies": ["Questions Komal", "newscape consultansy", "Inodeed"]
+        },
+        {
+          "id": "js-010",
+          "question": "What is the difference between null and undefined?",
+          "difficulty": "Easy",
+          "companies": ["Inodeed"]
+        },
+        {
+          "id": "js-011",
+          "question": "What is WeakMap and WeakSet in JavaScript?",
+          "difficulty": "Hard",
+          "companies": ["Neosoft"]
+        },
+        {
+          "id": "js-012",
+          "question": "What is the difference between == and ===?",
+          "difficulty": "Easy",
+          "companies": ["Inodeed", "Virendra Sir's Interview", "Questions Komal"]
+        },
+        {
+          "id": "js-013",
+          "question": "What are call, apply, and bind methods in JavaScript?",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview", "Questions Komal", "Almabay", "Sketchbramha"]
+        },
+        {
+          "id": "js-014",
+          "question": "What is prototype and prototype inheritance in JavaScript?",
+          "difficulty": "Hard",
+          "companies": ["Neosoft", "Questions Komal"]
+        },
+        {
+          "id": "js-015",
+          "question": "What is an IIFE (Immediately Invoked Function Expression)?",
+          "difficulty": "Medium",
+          "companies": ["Startappss"]
+        },
+        {
+          "id": "js-016",
+          "question": "What is the difference between shallow copy and deep copy?",
+          "difficulty": "Medium",
+          "companies": ["Questions Komal", "Neosoft", "Sketchbramha"]
+        },
+        {
+          "id": "js-017",
+          "question": "What is the Temporal Dead Zone (TDZ)?",
+          "difficulty": "Medium",
+          "companies": ["Questions Komal"]
+        },
+        {
+          "id": "js-018",
+          "question": "What are ES6 features?",
+          "difficulty": "Medium",
+          "companies": ["Questions Komal", "Trootech"]
+        },
+        {
+          "id": "js-019",
+          "question": "What are arrow functions in JavaScript?",
+          "difficulty": "Easy",
+          "companies": ["Questions Komal"]
+        },
+        {
+          "id": "js-020",
+          "question": "What is the spread operator in JavaScript?",
+          "difficulty": "Easy",
+          "companies": ["Questions Komal"]
+        },
+        {
+          "id": "js-021",
+          "question": "What is memoization in JavaScript?",
+          "difficulty": "Medium",
+          "companies": ["Questions Komal", "Protocol Zone"]
+        },
+        {
+          "id": "js-022",
+          "question": "What is function overloading and function overriding?",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview", "Questions Komal"]
+        },
+        {
+          "id": "js-023",
+          "question": "What is setTimeout and setInterval?",
+          "difficulty": "Easy",
+          "companies": ["Questions Komal", "UNKNOWN"]
+        },
+        {
+          "id": "js-024",
+          "question": "What are array methods (map, filter, reduce, flat, flatMap, forEach)? Give examples.",
+          "difficulty": "Medium",
+          "companies": ["VoiceOwl", "Golden Eagle", "Questions Komal", "Skyline Infosyam", "Trootech", "newscape consultansy", "Protocol Zone"]
+        },
+        {
+          "id": "js-025",
+          "question": "What are string methods in JavaScript? Give some examples.",
+          "difficulty": "Easy",
+          "companies": ["Questions Komal", "Trootech"]
+        },
+        {
+          "id": "js-026",
+          "question": "What is asynchronous programming in JavaScript?",
+          "difficulty": "Medium",
+          "companies": ["Questions Komal"]
+        },
+        {
+          "id": "js-027",
+          "question": "What is the difference between function declaration and function expression?",
+          "difficulty": "Easy",
+          "companies": ["Questions Komal"]
+        },
+        {
+          "id": "js-028",
+          "question": "Why is a function called a first-class citizen in JavaScript?",
+          "difficulty": "Medium",
+          "companies": ["Code for Tomorrow"]
+        },
+        {
+          "id": "js-029",
+          "question": "What is short-circuit evaluation in JavaScript?",
+          "difficulty": "Medium",
+          "companies": ["Code for Tomorrow"]
+        },
+        {
+          "id": "js-030",
+          "question": "What are unary, binary, and ternary operators?",
+          "difficulty": "Easy",
+          "companies": ["Code for Tomorrow"]
+        },
+        {
+          "id": "js-031",
+          "question": "What is variable shadowing in JavaScript?",
+          "difficulty": "Medium",
+          "companies": ["Questions Komal"]
+        },
+        {
+          "id": "js-032",
+          "question": "What are the different types of errors in JavaScript?",
+          "difficulty": "Medium",
+          "companies": ["Startappss"]
+        },
+        {
+          "id": "js-033",
+          "question": "What is the difference between parameters and arguments?",
+          "difficulty": "Easy",
+          "companies": ["Questions Komal"]
+        },
+        {
+          "id": "js-034",
+          "question": "What is the difference between DOM and BOM?",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "js-035",
+          "question": "Is JavaScript interpreted or compiled?",
+          "difficulty": "Medium",
+          "companies": ["Questions Komal"]
+        },
+        {
+          "id": "js-036",
+          "question": "What are the different module systems in JavaScript (CommonJS vs ES Modules, AMD, UMD)?",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "js-037",
+          "question": "What is ECMAScript?",
+          "difficulty": "Easy",
+          "companies": ["Questions Komal"]
+        },
+        {
+          "id": "js-038",
+          "question": "What is Promise.all and Promise.allSettled?",
+          "difficulty": "Medium",
+          "companies": ["newscape consultansy", "Virendra Sir's Interview", "Agilepoint"]
+        },
+        {
+          "id": "js-039",
+          "question": "What is Promise.race?",
+          "difficulty": "Medium",
+          "companies": ["Neosoft"]
+        },
+        {
+          "id": "js-040",
+          "question": "What is a polyfill in JavaScript?",
+          "difficulty": "Hard",
+          "companies": ["Neosoft"]
+        },
+        {
+          "id": "js-041",
+          "question": "What are macro tasks and micro tasks in the event loop?",
+          "difficulty": "Hard",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "js-042",
+          "question": "What is process.nextTick in Node.js?",
+          "difficulty": "Hard",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "js-043",
+          "question": "What is the typeof null and why does it return 'object'?",
+          "difficulty": "Medium",
+          "companies": ["Startappss"]
+        },
+        {
+          "id": "js-044",
+          "question": "What is tree shaking in JavaScript?",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "js-045",
+          "question": "Explain the difference between mutable and immutable data types.",
+          "difficulty": "Medium",
+          "companies": ["Trootech"]
+        },
+        {
+          "id": "js-046",
+          "question": "What is the Callback Queue (Task Queue)?",
+          "difficulty": "Medium",
+          "companies": ["Questions Komal"]
+        },
+        {
+          "id": "js-047",
+          "question": "What is a higher-order function in JavaScript?",
+          "difficulty": "Medium",
+          "companies": ["Questions Komal"]
+        },
+        {
+          "id": "js-048",
+          "question": "What are threads and what is the call stack?",
+          "difficulty": "Medium",
+          "companies": ["Questions Komal"]
+        },
+        {
+          "id": "js-049",
+          "question": "What is a control flow statement in JavaScript?",
+          "difficulty": "Easy",
+          "companies": ["Sketchbramha", "Skyline Infosyam"]
+        },
+        {
+          "id": "js-050",
+          "question": "How many ways can you create an object in JavaScript?",
+          "difficulty": "Medium",
+          "companies": ["Trootech", "Code for Tomorrow"]
+        },
+        {
+          "id": "js-051",
+          "question": "What is the difference between a property and a method in JavaScript?",
+          "difficulty": "Easy",
+          "companies": ["Trootech"]
+        },
+        {
+          "id": "js-052",
+          "question": "What is the 'this' keyword in JavaScript?",
+          "difficulty": "Medium",
+          "companies": ["Inodeed", "Almabay"]
+        },
+        {
+          "id": "js-053",
+          "question": "What is the super keyword in JavaScript?",
+          "difficulty": "Medium",
+          "companies": ["Inodeed"]
+        },
+        {
+          "id": "js-054",
+          "question": "What is global memory vs execution memory in JavaScript?",
+          "difficulty": "Hard",
+          "companies": ["Neosoft"]
+        },
+        {
+          "id": "js-055",
+          "question": "How does JavaScript run internally (execution context, call stack)?",
+          "difficulty": "Hard",
+          "companies": ["Neosoft"]
+        },
+        {
+          "id": "js-056",
+          "question": "What is Debouncing and Throttling in JavaScript, how do they differ, and how to implement them?",
+          "difficulty": "Hard",
+          "companies": ["Google", "Neosoft", "Thought Win", "Questions Komal"]
+        },
+        {
+          "id": "js-057",
+          "question": "How to write custom polyfills for Array.prototype.map, Array.prototype.filter, and Array.prototype.reduce?",
+          "difficulty": "Hard",
+          "companies": ["Neosoft", "Questions Komal", "Google"]
+        },
+        {
+          "id": "js-058",
+          "question": "How to write custom polyfills for Function.prototype.bind and Promise.all?",
+          "difficulty": "Hard",
+          "companies": ["Virendra Sir's Interview", "Almabay", "Amazon"]
+        },
+        {
+          "id": "js-059",
+          "question": "How does Memory Management and Garbage Collection work in JavaScript (Mark-and-Sweep algorithm, memory leaks)?",
+          "difficulty": "Hard",
+          "companies": ["Neosoft", "Trootech", "Microsoft"]
+        },
+        {
+          "id": "js-060",
+          "question": "Explain Destructuring, Rest parameters, Optional Chaining (`?.`), and Nullish Coalescing (`??`) in ES6+.",
+          "difficulty": "Medium",
+          "companies": ["Questions Komal", "Inodeed", "Trootech"]
+        },
+        {
+          "id": "js-061",
+          "question": "What is Event Delegation, why is it used, and what are its benefits? Give a code example.",
+          "difficulty": "Medium",
+          "companies": ["Razorpay", "Deloitte", "Neosoft"]
+        },
+        {
+          "id": "js-062",
+          "question": "What is Event Bubbling vs Event Capturing, and what is the difference between stopPropagation() and preventDefault()?",
+          "difficulty": "Medium",
+          "companies": ["PhonePe", "Accenture", "Questions Komal"]
+        },
+        {
+          "id": "js-063",
+          "question": "What causes Memory Leaks in JavaScript (unremoved event listeners, unclosed timers, closures, global variables) and how to prevent them?",
+          "difficulty": "Hard",
+          "companies": ["Razorpay", "IBM", "TCS Digital"]
+        },
+        {
+          "id": "js-064",
+          "question": "What is the difference between Object.freeze(), Object.seal(), and Object.preventExtensions()?",
+          "difficulty": "Medium",
+          "companies": ["Sureify", "Deloitte"]
+        },
+        {
+          "id": "js-065",
+          "question": "What is the difference between Map vs WeakMap and Set vs WeakSet in JavaScript?",
+          "difficulty": "Hard",
+          "companies": ["Neosoft", "Razorpay"]
+        },
+        {
+          "id": "js-066",
+          "question": "What is Symbol in JavaScript and why was it introduced?",
+          "difficulty": "Medium",
+          "companies": ["PhonePe", "IBM"]
+        },
+        {
+          "id": "js-067",
+          "question": "What are Generators and Iterators in JavaScript? Explain the yield keyword and Iterable vs Iterator.",
+          "difficulty": "Hard",
+          "companies": ["Deloitte", "Accenture"]
+        },
+        {
+          "id": "js-068",
+          "question": "What are Object.keys(), Object.values(), and Object.entries() in JavaScript?",
+          "difficulty": "Easy",
+          "companies": ["TCS Digital", "Questions Komal"]
+        },
+        {
+          "id": "js-069",
+          "question": "What is Function Currying and Infinite Currying? Implement sum(1)(2)(3)(4)().",
+          "difficulty": "Hard",
+          "companies": ["Razorpay", "PhonePe", "Sureify"]
+        },
+        {
+          "id": "js-070",
+          "question": "What is Function Composition in JavaScript?",
+          "difficulty": "Hard",
+          "companies": ["IBM", "Deloitte"]
+        },
+        {
+          "id": "js-071",
+          "question": "Tricky JS Output: What will `[] == ![]`, `typeof NaN`, `1 < 2 < 3`, and `3 > 2 > 1` output and why?",
+          "difficulty": "Medium",
+          "companies": ["Razorpay", "Questions Komal", "PhonePe"]
+        },
+        {
+          "id": "js-072",
+          "question": "Tricky JS Output: What will `[] + {}`, `{} + []`, `'5' - 2`, `'5' + 2`, and `true + true` output and why?",
+          "difficulty": "Medium",
+          "companies": ["Accenture", "TCS Digital", "IBM"]
+        }
+      ]
+    },
+    {
+      "name": "React",
+      "questions": [
+        {
+          "id": "react-001",
+          "question": "What is the Virtual DOM and how does it work?",
+          "difficulty": "Medium",
+          "companies": ["VoiceOwl", "Thought Win", "UNKNOWN", "Inodeed", "Questions Komal", "Trootech", "Bestpeers", "Octopus", "newscape consultansy", "Sketchbramha", "MintTech"]
+        },
+        {
+          "id": "react-002",
+          "question": "What are React Hooks? Which hooks have you used?",
+          "difficulty": "Medium",
+          "companies": ["Inodeed", "Thought Win", "Golden Eagle", "Questions Komal", "Octopus", "Agilepoint", "Protocol Zone"]
+        },
+        {
+          "id": "react-003",
+          "question": "What is the React lifecycle (for class and functional components)?",
+          "difficulty": "Medium",
+          "companies": ["Inodeed", "Questions Komal", "newscape consultansy", "Bestpeers", "Octopus"]
+        },
+        {
+          "id": "react-004",
+          "question": "What is the difference between props and state in React?",
+          "difficulty": "Easy",
+          "companies": ["Thought Win", "Questions Komal", "Golden Eagle"]
+        },
+        {
+          "id": "react-005",
+          "question": "What is a Higher-Order Component (HOC) in React?",
+          "difficulty": "Medium",
+          "companies": ["VoiceOwl", "Inodeed", "Questions Komal", "Octopus", "newscape consultansy", "Almabay"]
+        },
+        {
+          "id": "react-006",
+          "question": "What is the Context API in React?",
+          "difficulty": "Medium",
+          "companies": ["Inodeed", "UNKNOWN", "Questions Komal", "newscape consultansy", "Almabay", "Agilepoint", "Protocol Zone"]
+        },
+        {
+          "id": "react-007",
+          "question": "What is Redux and how does it work (store, reducer, dispatch, provider)?",
+          "difficulty": "Medium",
+          "companies": ["VoiceOwl", "Inodeed", "Questions Komal", "Bestpeers", "Almabay", "Agilepoint", "Protocol Zone", "SchoolHead"]
+        },
+        {
+          "id": "react-008",
+          "question": "What is the useEffect hook in React?",
+          "difficulty": "Medium",
+          "companies": ["Questions Komal", "newscape consultansy", "Sketchbramha", "Protocol Zone"]
+        },
+        {
+          "id": "react-009",
+          "question": "What is the useRef hook in React?",
+          "difficulty": "Medium",
+          "companies": ["UNKNOWN", "Questions Komal", "Almabay"]
+        },
+        {
+          "id": "react-010",
+          "question": "What is the useMemo hook in React?",
+          "difficulty": "Medium",
+          "companies": ["Questions Komal", "Bestpeers"]
+        },
+        {
+          "id": "react-011",
+          "question": "What is the useCallback hook in React?",
+          "difficulty": "Medium",
+          "companies": ["Questions Komal", "Bestpeers"]
+        },
+        {
+          "id": "react-012",
+          "question": "What is useSelector and useDispatch in Redux?",
+          "difficulty": "Medium",
+          "companies": ["Questions Komal"]
+        },
+        {
+          "id": "react-013",
+          "question": "What is the useReducer hook in React?",
+          "difficulty": "Medium",
+          "companies": ["Questions Komal"]
+        },
+        {
+          "id": "react-014",
+          "question": "What is React Fiber?",
+          "difficulty": "Hard",
+          "companies": ["Neosoft"]
+        },
+        {
+          "id": "react-015",
+          "question": "What is the difference between a class component and a functional component in React?",
+          "difficulty": "Easy",
+          "companies": ["Inodeed", "Questions Komal", "Octopus", "newscape consultansy"]
+        },
+        {
+          "id": "react-016",
+          "question": "What is JSX in React?",
+          "difficulty": "Easy",
+          "companies": ["Inodeed", "Questions Komal"]
+        },
+        {
+          "id": "react-017",
+          "question": "What are the advantages of React?",
+          "difficulty": "Easy",
+          "companies": ["Inodeed", "Questions Komal", "Sketchbramha"]
+        },
+        {
+          "id": "react-018",
+          "question": "What is props drilling in React?",
+          "difficulty": "Easy",
+          "companies": ["Inodeed"]
+        },
+        {
+          "id": "react-019",
+          "question": "What is React.Fragment?",
+          "difficulty": "Easy",
+          "companies": ["Inodeed"]
+        },
+        {
+          "id": "react-020",
+          "question": "What is a pure component and pure function in React?",
+          "difficulty": "Medium",
+          "companies": ["Questions Komal", "Octopus"]
+        },
+        {
+          "id": "react-021",
+          "question": "What is a custom hook and how do you create one?",
+          "difficulty": "Medium",
+          "companies": ["Thought Win", "Virendra Sir's Interview", "Almabay"]
+        },
+        {
+          "id": "react-022",
+          "question": "What is lazy loading in React?",
+          "difficulty": "Medium",
+          "companies": ["Sketchbramha"]
+        },
+        {
+          "id": "react-023",
+          "question": "What are error boundaries in React and why do we use them?",
+          "difficulty": "Medium",
+          "companies": ["Sketchbramha"]
+        },
+        {
+          "id": "react-024",
+          "question": "What is Redux Toolkit?",
+          "difficulty": "Medium",
+          "companies": ["Questions Komal", "PWC"]
+        },
+        {
+          "id": "react-025",
+          "question": "What is Redux Middleware?",
+          "difficulty": "Medium",
+          "companies": ["Questions Komal", "Neosoft", "Virendra Sir's Interview"]
+        },
+        {
+          "id": "react-026",
+          "question": "What is Flux architecture?",
+          "difficulty": "Medium",
+          "companies": ["Questions Komal", "SchoolHead"]
+        },
+        {
+          "id": "react-027",
+          "question": "What is a synthetic event in React?",
+          "difficulty": "Medium",
+          "companies": ["Neosoft"]
+        },
+        {
+          "id": "react-028",
+          "question": "What is event propagation and event delegation in React?",
+          "difficulty": "Medium",
+          "companies": ["Neosoft"]
+        },
+        {
+          "id": "react-029",
+          "question": "What is prop.render and prop.children in React?",
+          "difficulty": "Medium",
+          "companies": ["Neosoft"]
+        },
+        {
+          "id": "react-030",
+          "question": "What is the useImperativeHandle hook in React?",
+          "difficulty": "Hard",
+          "companies": ["Neosoft"]
+        },
+        {
+          "id": "react-031",
+          "question": "What is forwardRef in React?",
+          "difficulty": "Hard",
+          "companies": ["Neosoft"]
+        },
+        {
+          "id": "react-032",
+          "question": "What is a single-page application (SPA) and its advantages?",
+          "difficulty": "Easy",
+          "companies": ["Inodeed"]
+        },
+        {
+          "id": "react-033",
+          "question": "What is protected/private routing in React?",
+          "difficulty": "Medium",
+          "companies": ["VoiceOwl"]
+        },
+        {
+          "id": "react-034",
+          "question": "What is the Profiler in React?",
+          "difficulty": "Hard",
+          "companies": ["VoiceOwl"]
+        },
+        {
+          "id": "react-035",
+          "question": "How do you optimize a React application?",
+          "difficulty": "Hard",
+          "companies": ["newscape consultansy"]
+        },
+        {
+          "id": "react-036",
+          "question": "What is the shadow DOM?",
+          "difficulty": "Medium",
+          "companies": ["SchoolHead"]
+        },
+        {
+          "id": "react-037",
+          "question": "What is lifting state up in React?",
+          "difficulty": "Medium",
+          "companies": ["Note"]
+        },
+        {
+          "id": "react-038",
+          "question": "What is a transpiler in React (e.g., Babel)?",
+          "difficulty": "Medium",
+          "companies": ["Note"]
+        },
+        {
+          "id": "react-039",
+          "question": "What is the difference between a React element and a React component?",
+          "difficulty": "Medium",
+          "companies": ["Note"]
+        },
+        {
+          "id": "react-040",
+          "question": "What is the difference between React.js and Angular.js?",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "react-041",
+          "question": "What is the difference between Next.js and React?",
+          "difficulty": "Medium",
+          "companies": ["5exceptions"]
+        },
+        {
+          "id": "react-042",
+          "question": "Can we do SSR in React? If yes, how?",
+          "difficulty": "Hard",
+          "companies": ["5exceptions"]
+        },
+        {
+          "id": "react-043",
+          "question": "What is componentWillMount() and give an example?",
+          "difficulty": "Medium",
+          "companies": ["Neosoft"]
+        },
+        {
+          "id": "react-044",
+          "question": "What is a dependency and its types in React?",
+          "difficulty": "Medium",
+          "companies": ["SchoolHead"]
+        },
+        {
+          "id": "react-045",
+          "question": "What is Redux architecture?",
+          "difficulty": "Medium",
+          "companies": ["SchoolHead"]
+        },
+        {
+          "id": "react-046",
+          "question": "What is React Query / TanStack Query and how does server-state management differ from client-state management?",
+          "difficulty": "Hard",
+          "companies": ["Razorpay", "PhonePe", "Sureify"]
+        },
+        {
+          "id": "react-047",
+          "question": "What are Controlled vs Uncontrolled Components in React and when should you use each?",
+          "difficulty": "Medium",
+          "companies": ["Deloitte", "Accenture", "TCS Digital"]
+        },
+        {
+          "id": "react-048",
+          "question": "What are Error Boundaries in React and how do you implement componentDidCatch / getDerivedStateFromError?",
+          "difficulty": "Hard",
+          "companies": ["IBM", "Neosoft"]
+        },
+        {
+          "id": "react-049",
+          "question": "Explain Code Splitting, Lazy Loading (`React.lazy`), and Suspense in React for performance optimization.",
+          "difficulty": "Hard",
+          "companies": ["Razorpay", "IBM", "PhonePe"]
+        }
+      ]
+    },
+    {
+      "name": "Node.js",
+      "questions": [
+        {
+          "id": "node-001",
+          "question": "What are the main features of Node.js?",
+          "difficulty": "Easy",
+          "companies": ["Virendra Sir's Interview", "Skyline Infosyam"]
+        },
+        {
+          "id": "node-002",
+          "question": "How does Node.js handle asynchronous operations?",
+          "difficulty": "Medium",
+          "companies": ["Thought Win", "Virendra Sir's Interview"]
+        },
+        {
+          "id": "node-003",
+          "question": "What is Node.js architecture and how does it work internally?",
+          "difficulty": "Hard",
+          "companies": ["Trootech", "Neosoft"]
+        },
+        {
+          "id": "node-004",
+          "question": "What are streams and their types in Node.js?",
+          "difficulty": "Medium",
+          "companies": ["Thought Win", "Virendra Sir's Interview", "Neosoft"]
+        },
+        {
+          "id": "node-005",
+          "question": "What is a Duplex stream in Node.js?",
+          "difficulty": "Hard",
+          "companies": ["Thought Win"]
+        },
+        {
+          "id": "node-006",
+          "question": "What is a buffer in Node.js?",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "node-007",
+          "question": "What is the cluster module in Node.js?",
+          "difficulty": "Hard",
+          "companies": ["UNKNOWN", "Virendra Sir's Interview", "Neosoft"]
+        },
+        {
+          "id": "node-008",
+          "question": "What is an event emitter in Node.js?",
+          "difficulty": "Medium",
+          "companies": ["UNKNOWN", "Impetus"]
+        },
+        {
+          "id": "node-009",
+          "question": "What is Libuv in Node.js?",
+          "difficulty": "Hard",
+          "companies": ["UNKNOWN"]
+        },
+        {
+          "id": "node-010",
+          "question": "What is the thread pool in Node.js?",
+          "difficulty": "Hard",
+          "companies": ["UNKNOWN"]
+        },
+        {
+          "id": "node-011",
+          "question": "What is the V8 engine and its garbage collection?",
+          "difficulty": "Hard",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "node-012",
+          "question": "How to secure a Node.js application (Helmet, CORS, JWT)?",
+          "difficulty": "Medium",
+          "companies": ["UNKNOWN", "Thought Win"]
+        },
+        {
+          "id": "node-013",
+          "question": "How to debug a Node.js application?",
+          "difficulty": "Medium",
+          "companies": ["Thought Win"]
+        },
+        {
+          "id": "node-014",
+          "question": "What is blocking vs non-blocking in Node.js?",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "node-015",
+          "question": "How does Node.js handle multiple requests on a single thread?",
+          "difficulty": "Hard",
+          "companies": ["Skyline Infosyam"]
+        },
+        {
+          "id": "node-016",
+          "question": "What is the file system module in Node.js? How do you work with external files?",
+          "difficulty": "Medium",
+          "companies": ["Impetus", "Suhora"]
+        },
+        {
+          "id": "node-017",
+          "question": "What is heap and stack memory in Node.js and how is memory managed?",
+          "difficulty": "Hard",
+          "companies": ["Impetus"]
+        },
+        {
+          "id": "node-018",
+          "question": "How to upload files in Node.js (with and without Multer)?",
+          "difficulty": "Medium",
+          "companies": ["Neosoft"]
+        },
+        {
+          "id": "node-019",
+          "question": "How to optimize Node.js code?",
+          "difficulty": "Hard",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "node-020",
+          "question": "What is Nginx and how is it used for deploying Node.js servers?",
+          "difficulty": "Medium",
+          "companies": ["Thought Win Second"]
+        },
+        {
+          "id": "node-021",
+          "question": "What is the package.json file and npm?",
+          "difficulty": "Easy",
+          "companies": ["Inodeed", "Questions Komal", "newscape consultansy"]
+        },
+        {
+          "id": "node-022",
+          "question": "How to remove dev dependencies from package.json?",
+          "difficulty": "Easy",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "node-023",
+          "question": "What are the different types of APIs in Node.js?",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "node-024",
+          "question": "What is the difference between Python and Node.js?",
+          "difficulty": "Easy",
+          "companies": ["Virendra Sir's Interview"]
+        }
+      ]
+    },
+    {
+      "name": "Express.js",
+      "questions": [
+        {
+          "id": "express-001",
+          "question": "What is middleware in Express.js and its types?",
+          "difficulty": "Medium",
+          "companies": ["Thought Win", "Thought Win Second", "UNKNOWN", "Golden Eagle", "Virendra Sir's Interview", "newscape consultansy", "MintTech", "Narayan Technology"]
+        },
+        {
+          "id": "express-002",
+          "question": "Can we use multiple middleware in an Express.js server?",
+          "difficulty": "Easy",
+          "companies": ["Virendra Sir's Interview", "MintTech"]
+        },
+        {
+          "id": "express-003",
+          "question": "How to skip middleware in Express.js?",
+          "difficulty": "Medium",
+          "companies": ["MintTech"]
+        },
+        {
+          "id": "express-004",
+          "question": "How to validate an incoming request body in Express.js?",
+          "difficulty": "Medium",
+          "companies": ["Thought Win Second", "MintTech"]
+        },
+        {
+          "id": "express-005",
+          "question": "How to set a limit on request size in Express.js?",
+          "difficulty": "Medium",
+          "companies": ["Thought Win Second"]
+        },
+        {
+          "id": "express-006",
+          "question": "How to compress the payload in Express.js?",
+          "difficulty": "Medium",
+          "companies": ["Thought Win Second"]
+        },
+        {
+          "id": "express-007",
+          "question": "What is a REST API?",
+          "difficulty": "Easy",
+          "companies": ["Virendra Sir's Interview", "Trootech"]
+        },
+        {
+          "id": "express-008",
+          "question": "What are HTTP methods (GET, POST, PUT, PATCH, DELETE)?",
+          "difficulty": "Easy",
+          "companies": ["Trootech"]
+        },
+        {
+          "id": "express-009",
+          "question": "What is the difference between PUT and PATCH?",
+          "difficulty": "Easy",
+          "companies": ["Virendra Sir's Interview", "Suhora"]
+        },
+        {
+          "id": "express-010",
+          "question": "What is CORS and how to set/configure it?",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "express-011",
+          "question": "What is the difference between NestJS and Express.js?",
+          "difficulty": "Medium",
+          "companies": ["CodeZila"]
+        }
+      ]
+    },
+    {
+      "name": "NestJS",
+      "questions": [
+        {
+          "id": "nest-001",
+          "question": "What is NestJS?",
+          "difficulty": "Medium",
+          "companies": ["UNKNOWN"]
+        },
+        {
+          "id": "nest-002",
+          "question": "What is a decorator in NestJS?",
+          "difficulty": "Medium",
+          "companies": ["UNKNOWN", "Virendra Sir's Interview"]
+        },
+        {
+          "id": "nest-003",
+          "question": "What is a Reflector in NestJS?",
+          "difficulty": "Hard",
+          "companies": ["UNKNOWN"]
+        },
+        {
+          "id": "nest-004",
+          "question": "How to upload a file in NestJS with a 5MB size limit?",
+          "difficulty": "Medium",
+          "companies": ["UNKNOWN"]
+        },
+        {
+          "id": "nest-005",
+          "question": "What is a Guard in NestJS?",
+          "difficulty": "Medium",
+          "companies": ["UNKNOWN"]
+        },
+        {
+          "id": "nest-006",
+          "question": "What is an Interceptor in NestJS?",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "nest-007",
+          "question": "What are Pipes in NestJS?",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "nest-008",
+          "question": "What is dependency injection in NestJS?",
+          "difficulty": "Medium",
+          "companies": ["Code for Tomorrow"]
+        },
+        {
+          "id": "nest-009",
+          "question": "What is an exception filter in NestJS?",
+          "difficulty": "Medium",
+          "companies": ["Code for Tomorrow"]
+        },
+        {
+          "id": "nest-010",
+          "question": "How to avoid circular dependency in NestJS?",
+          "difficulty": "Hard",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "nest-011",
+          "question": "What is NestJS real-time technology (WebSockets/SSE)?",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "nest-012",
+          "question": "What are microservices in NestJS?",
+          "difficulty": "Hard",
+          "companies": ["Virendra Sir's Interview"]
+        }
+      ]
+    },
+    {
+      "name": "MongoDB",
+      "questions": [
+        {
+          "id": "mongo-001",
+          "question": "What are the pros and cons of MongoDB?",
+          "difficulty": "Medium",
+          "companies": ["Thought Win"]
+        },
+        {
+          "id": "mongo-002",
+          "question": "What is an aggregation pipeline in MongoDB?",
+          "difficulty": "Hard",
+          "companies": ["Thought Win", "Virendra Sir's Interview", "Narayan Technology"]
+        },
+        {
+          "id": "mongo-003",
+          "question": "What is $lookup in MongoDB?",
+          "difficulty": "Hard",
+          "companies": ["Thought Win"]
+        },
+        {
+          "id": "mongo-004",
+          "question": "What is denormalization in MongoDB?",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "mongo-005",
+          "question": "What is the MongoDB projection operator? e.g., db.user.find({},{name:1})",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "mongo-006",
+          "question": "What is the difference between MongoDB and MySQL (SQL vs NoSQL)?",
+          "difficulty": "Medium",
+          "companies": ["Chapter247", "Golden Eagle", "PWC", "Thought Win"]
+        },
+        {
+          "id": "mongo-007",
+          "question": "What is NoSQL and when to use it?",
+          "difficulty": "Easy",
+          "companies": ["Chapter247"]
+        },
+        {
+          "id": "mongo-008",
+          "question": "Write a MongoDB query to get the 4th highest salary from a collection.",
+          "difficulty": "Hard",
+          "companies": ["UNKNOWN"]
+        },
+        {
+          "id": "mongo-009",
+          "question": "Write a MongoDB query to get 5 random documents from a collection.",
+          "difficulty": "Medium",
+          "companies": ["UNKNOWN"]
+        },
+        {
+          "id": "mongo-010",
+          "question": "What is a capped collection in MongoDB?",
+          "difficulty": "Medium",
+          "companies": ["Note"]
+        },
+        {
+          "id": "mongo-011",
+          "question": "What is a transaction in MongoDB?",
+          "difficulty": "Hard",
+          "companies": ["Virendra Sir's Interview", "CodeZila"]
+        },
+        {
+          "id": "mongo-012",
+          "question": "What is an atomic operation in MongoDB?",
+          "difficulty": "Hard",
+          "companies": ["Virendra Sir's Interview"]
+        }
+      ]
+    },
+    {
+      "name": "SQL",
+      "questions": [
+        {
+          "id": "sql-001",
+          "question": "Write a raw SQL query to find the highest and second highest salary from an employee table.",
+          "difficulty": "Medium",
+          "companies": ["Thought Win"]
+        },
+        {
+          "id": "sql-002",
+          "question": "Write a SQL query to find the Nth highest salary (e.g., 4th highest).",
+          "difficulty": "Medium",
+          "companies": ["Thought Win Second", "UNKNOWN", "Skyline Infosyam"]
+        },
+        {
+          "id": "sql-003",
+          "question": "Write a SQL query to concatenate first name and last name as full name from an employee table.",
+          "difficulty": "Easy",
+          "companies": ["Thought Win Second"]
+        },
+        {
+          "id": "sql-004",
+          "question": "What is a VIEW in SQL?",
+          "difficulty": "Medium",
+          "companies": ["UNKNOWN"]
+        },
+        {
+          "id": "sql-005",
+          "question": "What is the difference between DELETE, TRUNCATE, and DROP?",
+          "difficulty": "Medium",
+          "companies": ["UNKNOWN"]
+        },
+        {
+          "id": "sql-006",
+          "question": "What is indexing in SQL? What are its advantages and disadvantages?",
+          "difficulty": "Medium",
+          "companies": ["UNKNOWN"]
+        },
+        {
+          "id": "sql-007",
+          "question": "What does DELETE WHERE 1=1 do in SQL?",
+          "difficulty": "Medium",
+          "companies": ["UNKNOWN"]
+        },
+        {
+          "id": "sql-008",
+          "question": "What is GROUP BY in SQL?",
+          "difficulty": "Medium",
+          "companies": ["UNKNOWN"]
+        },
+        {
+          "id": "sql-009",
+          "question": "What are the types of JOINs in SQL?",
+          "difficulty": "Medium",
+          "companies": ["Trootech"]
+        },
+        {
+          "id": "sql-010",
+          "question": "What are transactions in SQL?",
+          "difficulty": "Medium",
+          "companies": ["Thought Win Second"]
+        },
+        {
+          "id": "sql-011",
+          "question": "What are ACID properties in a database?",
+          "difficulty": "Hard",
+          "companies": ["Virendra Sir's Interview", "Golden Eagle", "Questions Komal"]
+        },
+        {
+          "id": "sql-012",
+          "question": "What is the difference between VARCHAR and CHAR in SQL?",
+          "difficulty": "Easy",
+          "companies": ["Trootech"]
+        },
+        {
+          "id": "sql-013",
+          "question": "What is the WHERE clause and HAVING clause in SQL?",
+          "difficulty": "Medium",
+          "companies": ["Code for Tomorrow"]
+        },
+        {
+          "id": "sql-014",
+          "question": "What is a SELF JOIN in SQL?",
+          "difficulty": "Medium",
+          "companies": ["Code for Tomorrow"]
+        },
+        {
+          "id": "sql-015",
+          "question": "How to concatenate fields in SQL?",
+          "difficulty": "Easy",
+          "companies": ["Code for Tomorrow"]
+        },
+        {
+          "id": "sql-016",
+          "question": "Write a SQL query to get the top 5 salaries and increase them by 10%.",
+          "difficulty": "Hard",
+          "companies": ["Skyline Infosyam"]
+        },
+        {
+          "id": "sql-017",
+          "question": "What is connection pooling in MySQL?",
+          "difficulty": "Hard",
+          "companies": ["Impetus"]
+        },
+        {
+          "id": "sql-018",
+          "question": "What is a primary key and foreign key in SQL?",
+          "difficulty": "Easy",
+          "companies": ["MintTech", "Empower"]
+        },
+        {
+          "id": "sql-019",
+          "question": "What are the attributes/properties of a foreign key in MySQL Sequelize?",
+          "difficulty": "Medium",
+          "companies": ["Code for Tomorrow"]
+        },
+        {
+          "id": "sql-020",
+          "question": "Write a single SQL query to join user, book, and page tables and find the highest page data.",
+          "difficulty": "Hard",
+          "companies": ["CodeZila"]
+        },
+        {
+          "id": "sql-021",
+          "question": "What is a pipeline (GROUP BY pipeline) in SQL?",
+          "difficulty": "Medium",
+          "companies": ["UNKNOWN"]
+        }
+      ]
+    },
+    {
+      "name": "TypeScript",
+      "questions": [
+        {
+          "id": "ts-001",
+          "question": "What is TypeScript and why do we use it?",
+          "difficulty": "Easy",
+          "companies": ["Protocol Zone"]
+        },
+        {
+          "id": "ts-002",
+          "question": "What is TypeORM?",
+          "difficulty": "Medium",
+          "companies": ["UNKNOWN", "Neosoft"]
+        },
+        {
+          "id": "ts-003",
+          "question": "What is Sequelize? What is migration in Sequelize and how do you update existing data using migration commands?",
+          "difficulty": "Hard",
+          "companies": ["CodeZila"]
+        }
+      ]
+    },
+    {
+      "name": "Authentication",
+      "questions": [
+        {
+          "id": "auth-001",
+          "question": "What is a JWT token and why do we use it even though it is not fully secure?",
+          "difficulty": "Medium",
+          "companies": ["Trootech", "Virendra Sir's Interview"]
+        },
+        {
+          "id": "auth-002",
+          "question": "How to secure a JWT token in the browser?",
+          "difficulty": "Hard",
+          "companies": ["Trootech", "Startappss"]
+        },
+        {
+          "id": "auth-003",
+          "question": "What is OAuth?",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "auth-004",
+          "question": "What is the difference between a session and cookies?",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview", "Questions Komal"]
+        },
+        {
+          "id": "auth-005",
+          "question": "How to enable/disable or block/unblock a particular IP address?",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview", "Skyline Infosyam"]
+        }
+      ]
+    },
+    {
+      "name": "AWS",
+      "questions": [
+        {
+          "id": "aws-001",
+          "question": "How have you worked with AWS?",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "aws-002",
+          "question": "Have you uploaded images to AWS S3 bucket? What is the process?",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "aws-003",
+          "question": "How does AWS Lambda work and why is it serverless?",
+          "difficulty": "Hard",
+          "companies": ["Chapter247", "Impetus"]
+        },
+        {
+          "id": "aws-004",
+          "question": "How to create login/signup functionality using AWS Lambda?",
+          "difficulty": "Hard",
+          "companies": ["Chapter247"]
+        },
+        {
+          "id": "aws-005",
+          "question": "What are AWS cloud services (Lambda, S3, Azure functions)?",
+          "difficulty": "Medium",
+          "companies": ["Impetus", "PWC"]
+        }
+      ]
+    },
+    {
+      "name": "DevOps",
+      "questions": [
+        {
+          "id": "devops-001",
+          "question": "How does Docker work and how to expose code/ports in Docker?",
+          "difficulty": "Medium",
+          "companies": ["Suhora"]
+        },
+        {
+          "id": "devops-002",
+          "question": "What is Webpack?",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "devops-003",
+          "question": "What is ESLint and how to enforce it across a team?",
+          "difficulty": "Easy",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "devops-004",
+          "question": "What is Vite and SWC?",
+          "difficulty": "Medium",
+          "companies": ["PWC"]
+        },
+        {
+          "id": "devops-005",
+          "question": "What is Azure and Azure functions?",
+          "difficulty": "Medium",
+          "companies": ["PWC"]
+        }
+      ]
+    },
+    {
+      "name": "Git",
+      "questions": [
+        {
+          "id": "git-001",
+          "question": "What is the difference between git fetch and git pull?",
+          "difficulty": "Easy",
+          "companies": ["Apexon"]
+        },
+        {
+          "id": "git-002",
+          "question": "If a branch is deleted but had the latest code, how do you recover it?",
+          "difficulty": "Medium",
+          "companies": ["Apexon"]
+        },
+        {
+          "id": "git-003",
+          "question": "What is the git diff command?",
+          "difficulty": "Easy",
+          "companies": ["Apexon"]
+        },
+        {
+          "id": "git-004",
+          "question": "How to create a branch in GitHub?",
+          "difficulty": "Easy",
+          "companies": ["Virendra Sir's Interview"]
+        }
+      ]
+    },
+    {
+      "name": "HTML & CSS",
+      "questions": [
+        {
+          "id": "htmlcss-001",
+          "question": "What are semantic elements in HTML?",
+          "difficulty": "Easy",
+          "companies": ["Startappss"]
+        },
+        {
+          "id": "htmlcss-002",
+          "question": "What is the CSS box model?",
+          "difficulty": "Easy",
+          "companies": ["Octopus", "Startappss"]
+        },
+        {
+          "id": "htmlcss-003",
+          "question": "What is an iFrame in HTML?",
+          "difficulty": "Easy",
+          "companies": ["Octopus"]
+        },
+        {
+          "id": "htmlcss-004",
+          "question": "What are the different ways to apply styles in React?",
+          "difficulty": "Easy",
+          "companies": ["Protocol Zone"]
+        }
+      ]
+    },
+    {
+      "name": "Performance",
+      "questions": [
+        {
+          "id": "perf-001",
+          "question": "What are strategies for performance optimization in a web application?",
+          "difficulty": "Hard",
+          "companies": ["Narayan Technology"]
+        },
+        {
+          "id": "perf-002",
+          "question": "Which is faster: filter() or a for loop?",
+          "difficulty": "Medium",
+          "companies": ["Protocol Zone"]
+        },
+        {
+          "id": "perf-003",
+          "question": "Is forEach synchronous or asynchronous?",
+          "difficulty": "Easy",
+          "companies": ["Protocol Zone"]
+        }
+      ]
+    },
+    {
+      "name": "Testing",
+      "questions": [
+        {
+          "id": "test-001",
+          "question": "What are test cases and how do you write them?",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "test-002",
+          "question": "Which library is used for testing in React?",
+          "difficulty": "Easy",
+          "companies": ["Sketchbramha"]
+        },
+        {
+          "id": "test-003",
+          "question": "What is Open API / Swagger?",
+          "difficulty": "Easy",
+          "companies": ["Virendra Sir's Interview"]
+        }
+      ]
+    },
+    {
+      "name": "Web APIs",
+      "questions": [
+        {
+          "id": "webapi-001",
+          "question": "What is the DOM?",
+          "difficulty": "Easy",
+          "companies": ["Questions Komal", "Thought Win"]
+        },
+        {
+          "id": "webapi-002",
+          "question": "How to fetch data from an API using Axios and Fetch?",
+          "difficulty": "Easy",
+          "companies": ["Questions Komal", "Bestpeers", "Almabay", "Agilepoint"]
+        },
+        {
+          "id": "webapi-003",
+          "question": "What are cookies?",
+          "difficulty": "Easy",
+          "companies": ["Virendra Sir's Interview", "Questions Komal"]
+        },
+        {
+          "id": "webapi-004",
+          "question": "What is the use of Firebase?",
+          "difficulty": "Easy",
+          "companies": ["Questions Komal"]
+        },
+        {
+          "id": "webapi-005",
+          "question": "What is OpenAI and how to use it in a Node.js application?",
+          "difficulty": "Medium",
+          "companies": ["Narayan Technology"]
+        },
+        {
+          "id": "webapi-006",
+          "question": "What is an HTTP request and what is a REST API request?",
+          "difficulty": "Easy",
+          "companies": ["Trootech"]
+        }
+      ]
+    },
+    {
+      "name": "System Design",
+      "questions": [
+        {
+          "id": "sd-001",
+          "question": "What are microservices and how do they work?",
+          "difficulty": "Hard",
+          "companies": ["Virendra Sir's Interview", "PWC", "Narayan Technology"]
+        },
+        {
+          "id": "sd-002",
+          "question": "What is Apache Kafka and how is it used?",
+          "difficulty": "Hard",
+          "companies": ["Virendra Sir's Interview", "Impetus"]
+        },
+        {
+          "id": "sd-003",
+          "question": "What is Socket.io and how does it work?",
+          "difficulty": "Medium",
+          "companies": ["Skyline Infosyam"]
+        },
+        {
+          "id": "sd-004",
+          "question": "What is load testing?",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "sd-005",
+          "question": "What is responsive design?",
+          "difficulty": "Easy",
+          "companies": ["Questions Komal"]
+        },
+        {
+          "id": "sd-006",
+          "question": "What is a bundler (e.g., Webpack, Vite)?",
+          "difficulty": "Medium",
+          "companies": ["Suhora", "SchoolHead"]
+        },
+        {
+          "id": "sd-007",
+          "question": "What is scaffolding in software development?",
+          "difficulty": "Easy",
+          "companies": ["Suhora"]
+        },
+        {
+          "id": "sd-008",
+          "question": "How to handle client-side errors using HTTP status codes?",
+          "difficulty": "Easy",
+          "companies": ["Skyline Infosyam"]
+        },
+        {
+          "id": "sd-009",
+          "question": "How to check if a user is active/online (like WhatsApp) without using Socket.io?",
+          "difficulty": "Hard",
+          "companies": ["Chapter247"]
+        },
+        {
+          "id": "sd-010",
+          "question": "What is SaaS?",
+          "difficulty": "Easy",
+          "companies": ["Protocol Zone"]
+        },
+        {
+          "id": "sd-011",
+          "question": "What are the 4 pillars of OOP?",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "sd-012",
+          "question": "What is an interface in OOP?",
+          "difficulty": "Medium",
+          "companies": ["Empower"]
+        },
+        {
+          "id": "sd-013",
+          "question": "What is a class in OOP?",
+          "difficulty": "Easy",
+          "companies": ["Empower"]
+        },
+        {
+          "id": "sd-014",
+          "question": "What is ORM and what are its benefits?",
+          "difficulty": "Easy",
+          "companies": ["UNKNOWN", "Neosoft", "Empower"]
+        }
+      ]
+    },
+    {
+      "name": "Angular",
+      "questions": [
+        {
+          "id": "ng-001",
+          "question": "What is the difference between Angular 16 and Angular 17?",
+          "difficulty": "Medium",
+          "companies": ["Narayan Technology"]
+        },
+        {
+          "id": "ng-002",
+          "question": "How to pass data between child and parent components in Angular?",
+          "difficulty": "Medium",
+          "companies": ["Narayan Technology"]
+        },
+        {
+          "id": "ng-003",
+          "question": "What is lazy loading in Angular?",
+          "difficulty": "Medium",
+          "companies": ["Narayan Technology", "Virendra Sir's Interview"]
+        },
+        {
+          "id": "ng-004",
+          "question": "What is an Interceptor in Angular?",
+          "difficulty": "Medium",
+          "companies": ["Narayan Technology"]
+        },
+        {
+          "id": "ng-005",
+          "question": "What is a protected/activated route in Angular (CanActivate guard)?",
+          "difficulty": "Medium",
+          "companies": ["Narayan Technology"]
+        },
+        {
+          "id": "ng-006",
+          "question": "How to implement role-based route protection in Angular?",
+          "difficulty": "Hard",
+          "companies": ["Narayan Technology"]
+        },
+        {
+          "id": "ng-007",
+          "question": "What is Dependency Injection (DI) in Angular?",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "ng-008",
+          "question": "What is a directive in Angular?",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "ng-009",
+          "question": "What is an Observable in Angular (RxJS)?",
+          "difficulty": "Hard",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "ng-010",
+          "question": "What is NgRx in Angular?",
+          "difficulty": "Hard",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "ng-011",
+          "question": "What is FormModule and form control lifecycle in Angular?",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "ng-012",
+          "question": "What is the @Injectable decorator used for in Angular?",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "ng-013",
+          "question": "What is an interface in Angular (TypeScript)?",
+          "difficulty": "Easy",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "ng-014",
+          "question": "What are Pipes in Angular?",
+          "difficulty": "Easy",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "ng-015",
+          "question": "What is a service in Angular and the difference between a directive and a service?",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "ng-016",
+          "question": "Which version of Angular are you currently using?",
+          "difficulty": "Easy",
+          "companies": ["Narayan Technology"]
+        }
+      ]
+    },
+    {
+      "name": "Data Structures & Algorithms",
+      "questions": [
+        {
+          "id": "dsa-001",
+          "question": "Remove duplicate items from an array.",
+          "difficulty": "Easy",
+          "companies": ["Thought Win", "UNKNOWN", "CommonQuestion"]
+        },
+        {
+          "id": "dsa-002",
+          "question": "Two sum problem: Given arr=[2,7,41,66] and target=9, find indices of two numbers that sum to the target.",
+          "difficulty": "Medium",
+          "companies": ["Thought Win"]
+        },
+        {
+          "id": "dsa-003",
+          "question": "Given string 'aabbbbccdddddaaaik', count the character with the maximum occurrence.",
+          "difficulty": "Medium",
+          "companies": ["Thought Win Second"]
+        },
+        {
+          "id": "dsa-004",
+          "question": "Write a palindrome check program.",
+          "difficulty": "Easy",
+          "companies": ["Chapter247", "Trootech", "CommonQuestion"]
+        },
+        {
+          "id": "dsa-005",
+          "question": "Sort an array of integers in ascending and descending order without using predefined methods.",
+          "difficulty": "Medium",
+          "companies": ["Agicent", "5exceptions", "CommonQuestion"]
+        },
+        {
+          "id": "dsa-006",
+          "question": "Find the largest and smallest element in an array without using predefined methods.",
+          "difficulty": "Easy",
+          "companies": ["Agicent", "CommonQuestion"]
+        },
+        {
+          "id": "dsa-007",
+          "question": "Find vowels in a string without using predefined methods.",
+          "difficulty": "Easy",
+          "companies": ["Agicent", "CommonQuestion"]
+        },
+        {
+          "id": "dsa-008",
+          "question": "Flatten a nested array without using predefined methods.",
+          "difficulty": "Medium",
+          "companies": ["Almabay", "MintTech", "CodeZila", "CommonQuestion"]
+        },
+        {
+          "id": "dsa-009",
+          "question": "Find the missing number in an array.",
+          "difficulty": "Easy",
+          "companies": ["Almabay", "CommonQuestion"]
+        },
+        {
+          "id": "dsa-010",
+          "question": "Find the word with the most characters in a sentence.",
+          "difficulty": "Easy",
+          "companies": ["Almabay"]
+        },
+        {
+          "id": "dsa-011",
+          "question": "Find unique values in an array.",
+          "difficulty": "Easy",
+          "companies": ["UNKNOWN", "CommonQuestion"]
+        },
+        {
+          "id": "dsa-012",
+          "question": "Find the maximum number in an array.",
+          "difficulty": "Easy",
+          "companies": ["UNKNOWN", "CommonQuestion"]
+        },
+        {
+          "id": "dsa-013",
+          "question": "Create a custom Array.map() implementation from scratch.",
+          "difficulty": "Hard",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "dsa-014",
+          "question": "Sort an array of objects by score; if scores are equal, sort by id (without predefined sort).",
+          "difficulty": "Hard",
+          "companies": ["PWC"]
+        },
+        {
+          "id": "dsa-015",
+          "question": "Rotate an array by 3 positions without using any predefined methods.",
+          "difficulty": "Medium",
+          "companies": ["Sketchbramha"]
+        },
+        {
+          "id": "dsa-016",
+          "question": "Find the common element in a sorted array.",
+          "difficulty": "Medium",
+          "companies": ["newscape consultansy"]
+        },
+        {
+          "id": "dsa-017",
+          "question": "Find the first element with a second occurrence in an array (e.g., ['a','b','c','d','b'] → 'b').",
+          "difficulty": "Medium",
+          "companies": ["CommonQuestion", "CodeZila"]
+        },
+        {
+          "id": "dsa-018",
+          "question": "Merge two arrays in interleaved order (arr1=[1,2,3,4], arr2=[5,6,7,8] → [1,5,2,6,3,7,4,8]).",
+          "difficulty": "Medium",
+          "companies": ["Bestpeers", "CommonQuestion"]
+        },
+        {
+          "id": "dsa-019",
+          "question": "Print a star (*) pattern (right triangle, full triangle, etc.).",
+          "difficulty": "Easy",
+          "companies": ["5exceptions", "CommonQuestion"]
+        },
+        {
+          "id": "dsa-020",
+          "question": "Find the word with the maximum occurrence in a sentence.",
+          "difficulty": "Medium",
+          "companies": ["CommonQuestion"]
+        },
+        {
+          "id": "dsa-021",
+          "question": "Find the second largest value in an array.",
+          "difficulty": "Easy",
+          "companies": ["CommonQuestion"]
+        },
+        {
+          "id": "dsa-022",
+          "question": "Check if a number is even or odd.",
+          "difficulty": "Easy",
+          "companies": ["CommonQuestion"]
+        },
+        {
+          "id": "dsa-023",
+          "question": "Find the sum of all numbers in an array.",
+          "difficulty": "Easy",
+          "companies": ["CommonQuestion"]
+        },
+        {
+          "id": "dsa-024",
+          "question": "Write a recursion example and iterate an array using recursion.",
+          "difficulty": "Medium",
+          "companies": ["UNKNOWN", "CommonQuestion"]
+        },
+        {
+          "id": "dsa-025",
+          "question": "Write a factorial program.",
+          "difficulty": "Easy",
+          "companies": ["CommonQuestion"]
+        },
+        {
+          "id": "dsa-026",
+          "question": "Write a prime number program.",
+          "difficulty": "Easy",
+          "companies": ["CommonQuestion"]
+        },
+        {
+          "id": "dsa-027",
+          "question": "Write a string reverse program.",
+          "difficulty": "Easy",
+          "companies": ["CommonQuestion"]
+        },
+        {
+          "id": "dsa-028",
+          "question": "Swap two variables without using a third variable.",
+          "difficulty": "Easy",
+          "companies": ["CommonQuestion"]
+        },
+        {
+          "id": "dsa-029",
+          "question": "Compare two arrays and find the union of two arrays.",
+          "difficulty": "Easy",
+          "companies": ["CommonQuestion"]
+        },
+        {
+          "id": "dsa-030",
+          "question": "Convert Celsius to Fahrenheit.",
+          "difficulty": "Easy",
+          "companies": ["CommonQuestion"]
+        },
+        {
+          "id": "dsa-031",
+          "question": "Write a Fibonacci sequence program.",
+          "difficulty": "Easy",
+          "companies": ["CommonQuestion"]
+        },
+        {
+          "id": "dsa-032",
+          "question": "Write an Armstrong number program.",
+          "difficulty": "Easy",
+          "companies": ["CommonQuestion"]
+        },
+        {
+          "id": "dsa-033",
+          "question": "What does `let z = [...x, ...y]` output when x=[1,2,3] and y={name:'test'}?",
+          "difficulty": "Hard",
+          "companies": ["CommonQuestion"]
+        },
+        {
+          "id": "dsa-034",
+          "question": "Flatten a deeply nested array and find the element with the maximum occurrence without using predefined methods.",
+          "difficulty": "Hard",
+          "companies": ["CodeZila"]
+        },
+        {
+          "id": "dsa-035",
+          "question": "Given an array of objects with duplicate ids, sum values for the same id and return a deduplicated array.",
+          "difficulty": "Medium",
+          "companies": ["ZecData"]
+        },
+        {
+          "id": "dsa-036",
+          "question": "Given an array of objects, rename the key 'id' to 'no' for each object.",
+          "difficulty": "Easy",
+          "companies": ["ZecData"]
+        },
+        {
+          "id": "dsa-037",
+          "question": "Convert the string 'hello world' to 'Hello World' (title case) without predefined methods.",
+          "difficulty": "Easy",
+          "companies": ["Apexon"]
+        },
+        {
+          "id": "dsa-038",
+          "question": "Write a function that creates a deep copy of an object.",
+          "difficulty": "Medium",
+          "companies": ["Apexon", "Neosoft"]
+        }
+      ]
+    },
+    {
+      "name": "Coding (Output-Based)",
+      "questions": [
+        {
+          "id": "code-001",
+          "question": "Predict the output: var myObject = { foo:'bar', func: function(){ var self=this; console.log(this.foo); console.log(self.foo); (function(){ console.log(this.foo); console.log(self.foo); })(); } }; myObject.func();",
+          "difficulty": "Hard",
+          "companies": ["Neosoft"]
+        },
+        {
+          "id": "code-002",
+          "question": "Predict the output of async/await with Promise and setTimeout (async1 calls async2 pattern).",
+          "difficulty": "Hard",
+          "companies": ["Neosoft"]
+        },
+        {
+          "id": "code-003",
+          "question": "Predict the output of: for (var i=0; i<=5; ++i) { setTimeout(() => { console.log(i); }, 0); }",
+          "difficulty": "Hard",
+          "companies": ["Neosoft"]
+        },
+        {
+          "id": "code-004",
+          "question": "Predict the output of a Promise chain with a nested setTimeout inside .then().",
+          "difficulty": "Hard",
+          "companies": ["Ideausher"]
+        },
+        {
+          "id": "code-005",
+          "question": "Predict the output: for(let i=0; i<10; i++) { console.log('Ideausher') } console.log('end').",
+          "difficulty": "Easy",
+          "companies": ["Ideausher"]
+        },
+        {
+          "id": "code-006",
+          "question": "Predict the output: console.log('1'===1), console.log(0==false), setTimeout, Promise.resolve, console.log(23-'2'+'-2').",
+          "difficulty": "Hard",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "code-007",
+          "question": "Reverse the string 'viru is from indore' word by word to produce 'erodni morf si uriv'.",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "code-008",
+          "question": "Predict the output of Math.floor, Math.ceil, Math.round for various values (4.7, 4.3, -4.7, 4.4, -4.5).",
+          "difficulty": "Easy",
+          "companies": ["Startappss"]
+        },
+        {
+          "id": "code-009",
+          "question": "Predict the output of the variable swap using string slicing: a='ram', b='shyam' → swap without third variable using slice.",
+          "difficulty": "Hard",
+          "companies": ["Tech Valens"]
+        },
+        {
+          "id": "code-010",
+          "question": "Predict the output of a recursive sum function: sum([4]) → ?",
+          "difficulty": "Medium",
+          "companies": ["Tech Valens"]
+        }
+      ]
+    },
+    {
+      "name": "Machine Coding",
+      "questions": [
+        {
+          "id": "mc-001",
+          "question": "Show and hide text when the user clicks a button (toggle visibility).",
+          "difficulty": "Easy",
+          "companies": ["Ideausher"]
+        },
+        {
+          "id": "mc-002",
+          "question": "Create an input box in React. When clicked, display a counter showing how many times the component has re-rendered.",
+          "difficulty": "Medium",
+          "companies": ["Trootech"]
+        },
+        {
+          "id": "mc-003",
+          "question": "Fetch data from the JSONPlaceholder API and display id, name, username, email in a table.",
+          "difficulty": "Easy",
+          "companies": ["Bestpeers", "Virendra Sir's Interview"]
+        },
+        {
+          "id": "mc-004",
+          "question": "Create a Node.js server with a GET endpoint that calls 'https://jsonplaceholder.typicode.com/users' and responds with id, name, username, email.",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "mc-005",
+          "question": "Create a React app that fetches the JSONPlaceholder users API and displays results as a table (id, name, username, email).",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "mc-006",
+          "question": "Create a React app that renders a 3x4 grid of clickable options and shows the corresponding box on selection.",
+          "difficulty": "Medium",
+          "companies": ["MintTech"]
+        },
+        {
+          "id": "mc-007",
+          "question": "Create an Angular project with Home and Login routing using lazy loading.",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "mc-008",
+          "question": "Create an Angular project with Parent and Child components: input in parent sends data to child, child notifies parent.",
+          "difficulty": "Medium",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "mc-009",
+          "question": "Create an Angular project with a validated email input field, send to server, and display send status.",
+          "difficulty": "Hard",
+          "companies": ["Narayan Technology"]
+        },
+        {
+          "id": "mc-010",
+          "question": "Create a Node.js POST endpoint to send an email using Express and optionally store it in MySQL.",
+          "difficulty": "Hard",
+          "companies": ["Narayan Technology"]
+        },
+        {
+          "id": "mc-011",
+          "question": "In React, create a form to handle async tasks (e.g., API submission with loading state).",
+          "difficulty": "Medium",
+          "companies": ["Agilepoint"]
+        },
+        {
+          "id": "mc-012",
+          "question": "Implement a custom `debounce(fn, delay)` function in JavaScript with leading/trailing option.",
+          "difficulty": "Medium",
+          "companies": ["Google", "Razorpay", "PhonePe", "Neosoft"],
+          "answer": "```javascript\nfunction debounce(fn, delay) {\n  let timer;\n  return function (...args) {\n    const context = this;\n    clearTimeout(timer);\n    timer = setTimeout(() => fn.apply(context, args), delay);\n  };\n}\n```"
+        },
+        {
+          "id": "mc-013",
+          "question": "Implement a custom `throttle(fn, limit)` function in JavaScript.",
+          "difficulty": "Medium",
+          "companies": ["Amazon", "Razorpay", "PhonePe", "Neosoft"],
+          "answer": "```javascript\nfunction throttle(fn, limit) {\n  let inThrottle;\n  return function (...args) {\n    const context = this;\n    if (!inThrottle) {\n      fn.apply(context, args);\n      inThrottle = true;\n      setTimeout(() => (inThrottle = false), limit);\n    }\n  };\n}\n```"
+        },
+        {
+          "id": "mc-014",
+          "question": "Implement custom Polyfills for Array methods (`map`, `filter`, `reduce`), `Function.prototype.bind`, and `Promise.all`.",
+          "difficulty": "Hard",
+          "companies": ["Google", "Neosoft", "Thought Win", "Virendra Sir's Interview"],
+          "answer": "```javascript\n// Array.prototype.myMap\nArray.prototype.myMap = function(cb) {\n  const res = [];\n  for (let i = 0; i < this.length; i++) {\n    if (i in this) res.push(cb(this[i], i, this));\n  }\n  return res;\n};\n\n// Array.prototype.myFilter\nArray.prototype.myFilter = function(cb) {\n  const res = [];\n  for (let i = 0; i < this.length; i++) {\n    if (i in this && cb(this[i], i, this)) res.push(this[i]);\n  }\n  return res;\n};\n\n// Array.prototype.myReduce\nArray.prototype.myReduce = function(cb, initVal) {\n  let acc = initVal !== undefined ? initVal : this[0];\n  let start = initVal !== undefined ? 0 : 1;\n  for (let i = start; i < this.length; i++) {\n    if (i in this) acc = cb(acc, this[i], i, this);\n  }\n  return acc;\n};\n\n// Function.prototype.myBind\nFunction.prototype.myBind = function(context, ...args1) {\n  const fn = this;\n  return function(...args2) {\n    return fn.apply(context, [...args1, ...args2]);\n  };\n};\n\n// Promise.myAll\nPromise.myAll = function(promises) {\n  return new Promise((resolve, reject) => {\n    let results = [], completed = 0;\n    if (!promises.length) return resolve([]);\n    promises.forEach((p, idx) => {\n      Promise.resolve(p).then(res => {\n        results[idx] = res;\n        completed++;\n        if (completed === promises.length) resolve(results);\n      }).catch(reject);\n    });\n  });\n};\n```"
+        },
+        {
+          "id": "mc-015",
+          "question": "Implement a custom Deep Clone (`deepCopy`) algorithm handling nested objects, arrays, and primitives in JavaScript.",
+          "difficulty": "Hard",
+          "companies": ["Microsoft", "Razorpay", "Questions Komal", "Neosoft"],
+          "answer": "```javascript\nfunction deepClone(obj, hash = new WeakMap()) {\n  if (obj === null || typeof obj !== 'object') return obj;\n  if (obj instanceof Date) return new Date(obj);\n  if (obj instanceof RegExp) return new RegExp(obj);\n  if (hash.has(obj)) return hash.get(obj);\n  \n  const clone = Array.isArray(obj) ? [] : {};\n  hash.set(obj, clone);\n  \n  for (let key of Object.keys(obj)) {\n    clone[key] = deepClone(obj[key], hash);\n  }\n  return clone;\n}\n```"
+        },
+        {
+          "id": "mc-016",
+          "question": "Implement Flatten Array (`flattenArray`) and Flatten Object (`flattenObject`) in JavaScript.",
+          "difficulty": "Hard",
+          "companies": ["Google", "PhonePe", "Razorpay", "Code for Tomorrow"],
+          "answer": "```javascript\n// Flatten Array\nfunction flattenArray(arr) {\n  return arr.reduce((acc, val) => \n    Array.isArray(val) ? acc.concat(flattenArray(val)) : acc.concat(val), []);\n}\n\n// Flatten Object\nfunction flattenObject(obj, prefix = '') {\n  return Object.keys(obj).reduce((acc, k) => {\n    const pre = prefix.length ? prefix + '.' : '';\n    if (typeof obj[k] === 'object' && obj[k] !== null && !Array.isArray(obj[k])) {\n      Object.assign(acc, flattenObject(obj[k], pre + k));\n    } else {\n      acc[pre + k] = obj[k];\n    }\n    return acc;\n  }, {});\n}\n```"
+        },
+        {
+          "id": "mc-017",
+          "question": "Implement Function Currying (`curry`) and Infinite Currying in JavaScript.",
+          "difficulty": "Medium",
+          "companies": ["Deloitte", "Accenture", "Sureify"],
+          "answer": "```javascript\n// Generic Curry\nfunction curry(fn) {\n  return function curried(...args) {\n    if (args.length >= fn.length) {\n      return fn.apply(this, args);\n    } else {\n      return function(...nextArgs) {\n        return curried.apply(this, args.concat(nextArgs));\n      };\n    }\n  };\n}\n\n// Infinite Currying: sum(1)(2)(3)(4)() -> 10\nfunction sum(a) {\n  return function(b) {\n    if (b !== undefined) return sum(a + b);\n    return a;\n  };\n}\n```"
+        },
+        {
+          "id": "mc-018",
+          "question": "Implement a custom Memoization utility (`memoize`) with cache management in JavaScript.",
+          "difficulty": "Medium",
+          "companies": ["Razorpay", "IBM", "Protocol Zone"],
+          "answer": "```javascript\nfunction memoize(fn, resolver) {\n  const cache = new Map();\n  return function(...args) {\n    const key = resolver ? resolver(...args) : JSON.stringify(args);\n    if (cache.has(key)) {\n      return cache.get(key);\n    }\n    const result = fn.apply(this, args);\n    cache.set(key, result);\n    return result;\n  };\n}\n```"
+        },
+        {
+          "id": "mc-019",
+          "question": "Implement a custom `EventEmitter` class in JavaScript with `on`, `off`, `emit`, and `once` methods.",
+          "difficulty": "Hard",
+          "companies": ["Node.js", "Razorpay", "PhonePe", "Neosoft"],
+          "answer": "```javascript\nclass EventEmitter {\n  constructor() {\n    this.events = {};\n  }\n  on(event, listener) {\n    if (!this.events[event]) this.events[event] = [];\n    this.events[event].push(listener);\n  }\n  off(event, listener) {\n    if (!this.events[event]) return;\n    this.events[event] = this.events[event].filter(l => l !== listener);\n  }\n  emit(event, ...args) {\n    if (!this.events[event]) return;\n    this.events[event].forEach(listener => listener(...args));\n  }\n  once(event, listener) {\n    const wrapper = (...args) => {\n      listener(...args);\n      this.off(event, wrapper);\n    };\n    this.on(event, wrapper);\n  }\n}\n```"
+        },
+        {
+          "id": "mc-020",
+          "question": "Implement an LRU Cache (Least Recently Used) data structure in JavaScript with `get(key)` and `put(key, value)` in O(1) time.",
+          "difficulty": "Hard",
+          "companies": ["Amazon", "Google", "Microsoft", "PhonePe"],
+          "answer": "```javascript\nclass LRUCache {\n  constructor(capacity) {\n    this.capacity = capacity;\n    this.cache = new Map();\n  }\n  get(key) {\n    if (!this.cache.has(key)) return -1;\n    const val = this.cache.get(key);\n    this.cache.delete(key);\n    this.cache.set(key, val);\n    return val;\n  }\n  put(key, value) {\n    if (this.cache.has(key)) {\n      this.cache.delete(key);\n    } else if (this.cache.size >= this.capacity) {\n      const oldestKey = this.cache.keys().next().value;\n      this.cache.delete(oldestKey);\n    }\n    this.cache.set(key, value);\n  }\n}\n```"
+        }
+      ]
+    },
+    {
+      "name": "Behavioral & HR",
+      "questions": [
+        {
+          "id": "hr-001",
+          "question": "Tell me about your project experience (MongoDB / Node.js / React).",
+          "difficulty": "Easy",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "hr-002",
+          "question": "What Python framework have you worked with?",
+          "difficulty": "Easy",
+          "companies": ["Narayan Technology"]
+        },
+        {
+          "id": "hr-003",
+          "question": "What is hosting and which hosting platforms have you used?",
+          "difficulty": "Easy",
+          "companies": ["Virendra Sir's Interview"]
+        },
+        {
+          "id": "hr-004",
+          "question": "Name five popular npm packages you have used.",
+          "difficulty": "Easy",
+          "companies": ["Inodeed"]
+        }
+      ]
+    }
+  ]
+};
+
+// Global State
+let rawData = null;
+let allQuestions = [];
+let categories = [];
+let companiesMap = new Map();
+
+// Active Filters State
+let selectedCategory = 'ALL';
+let selectedCompany = 'ALL';
+let selectedDifficulties = new Set(['Easy', 'Medium', 'Hard']);
+let searchQuery = '';
+let showOnlyBookmarked = false;
+let sortBy = 'default';
+let viewMode = 'grid';
+
+// Local Storage Persistence
+let bookmarkedIds = new Set(JSON.parse(localStorage.getItem('techprep_bookmarks') || '[]'));
+let masteredIds = new Set(JSON.parse(localStorage.getItem('techprep_mastered') || '[]'));
+
+// Element References
+let elements = {};
+
+// Initialize Application
+document.addEventListener('DOMContentLoaded', async () => {
+  initElements();
+  initTheme();
+  await loadData();
+  processData();
+  renderSidebarControls();
+  setupEventListeners();
+  applyFiltersAndRender();
+});
+
+function initElements() {
+  elements = {
+    themeToggleBtn: document.getElementById('themeToggleBtn'),
+    themeIcon: document.getElementById('themeIcon'),
+    themeText: document.getElementById('themeText'),
+    
+    totalQuestionsVal: document.getElementById('totalQuestionsVal'),
+    filteredQuestionsVal: document.getElementById('filteredQuestionsVal'),
+    bookmarkedVal: document.getElementById('bookmarkedVal'),
+    masteredVal: document.getElementById('masteredVal'),
+    masteredProgressFill: document.getElementById('masteredProgressFill'),
+    companiesCountVal: document.getElementById('companiesCountVal'),
+    
+    searchInput: document.getElementById('searchInput'),
+    clearSearchBtn: document.getElementById('clearSearchBtn'),
+    categoryList: document.getElementById('categoryList'),
+    companySelect: document.getElementById('companySelect'),
+    companyTagsCloud: document.getElementById('companyTagsCloud'),
+    diffBtns: document.querySelectorAll('.diff-btn'),
+    
+    resetFiltersBtn: document.getElementById('resetFiltersBtn'),
+    randomQuestionBtn: document.getElementById('randomQuestionBtn'),
+    bookmarkFilterBtn: document.getElementById('bookmarkFilterBtn'),
+    
+    resultsCount: document.getElementById('resultsCount'),
+    activeFiltersBar: document.getElementById('activeFiltersBar'),
+    sortSelect: document.getElementById('sortSelect'),
+    gridModeBtn: document.getElementById('gridModeBtn'),
+    listModeBtn: document.getElementById('listModeBtn'),
+    
+    questionsGrid: document.getElementById('questionsGrid'),
+    toastContainer: document.getElementById('toastContainer'),
+    backToTopBtn: document.getElementById('backToTopBtn')
+  };
+}
+
+// Theme Management
+function initTheme() {
+  const savedTheme = localStorage.getItem('techprep_theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  updateThemeUI(savedTheme);
+}
+
+function toggleTheme() {
+  const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', newTheme);
+  localStorage.setItem('techprep_theme', newTheme);
+  updateThemeUI(newTheme);
+  showToast(newTheme === 'dark' ? '🌙 Switched to Dark Mode' : '☀️ Switched to Light Mode');
+}
+
+function updateThemeUI(theme) {
+  if (elements.themeIcon) {
+    elements.themeIcon.className = theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+  }
+  if (elements.themeText) {
+    elements.themeText.textContent = theme === 'dark' ? 'Light Mode' : 'Dark Mode';
+  }
+}
+
+// Data Loading Pipeline
+async function loadData() {
+  try {
+    const response = await fetch('interview_questions.json');
+    if (!response.ok) throw new Error('Fetch status not ok');
+    rawData = await response.json();
+  } catch (err) {
+    console.warn('Using embedded JSON fallback:', err);
+    rawData = FALLBACK_DATA;
+  }
+}
+
+// Process and Flatten Data
+function processData() {
+  allQuestions = [];
+  categories = [];
+  companiesMap.clear();
+
+  if (!rawData || !rawData.categories) return;
+
+  rawData.categories.forEach(cat => {
+    categories.push({
+      name: cat.name,
+      count: cat.questions ? cat.questions.length : 0
+    });
+
+    if (cat.questions) {
+      cat.questions.forEach(q => {
+        const item = {
+          ...q,
+          category: cat.name,
+          companies: q.companies || []
+        };
+        allQuestions.push(item);
+
+        // Map companies
+        item.companies.forEach(comp => {
+          companiesMap.set(comp, (companiesMap.get(comp) || 0) + 1);
+        });
+      });
+    }
+  });
+}
+
+// Render Sidebar Filter Controls
+function renderSidebarControls() {
+  if (!elements.categoryList) return;
+
+  // 1. Categories List
+  elements.categoryList.innerHTML = '';
+  
+  const allCatBtn = document.createElement('button');
+  allCatBtn.className = 'category-item ' + (selectedCategory === 'ALL' ? 'active' : '');
+  allCatBtn.innerHTML = `
+    <span><i class="fa-solid fa-layer-group" style="margin-right: 8px;"></i> All Categories</span>
+    <span class="cat-count">${allQuestions.length}</span>
+  `;
+  allCatBtn.onclick = () => selectCategory('ALL');
+  elements.categoryList.appendChild(allCatBtn);
+
+  categories.forEach(cat => {
+    const btn = document.createElement('button');
+    btn.className = 'category-item ' + (selectedCategory === cat.name ? 'active' : '');
+    btn.innerHTML = `
+      <span>${getCategoryIcon(cat.name)} ${cat.name}</span>
+      <span class="cat-count">${cat.count}</span>
+    `;
+    btn.onclick = () => selectCategory(cat.name);
+    elements.categoryList.appendChild(btn);
+  });
+
+  // 2. Company Select & Tags Cloud
+  elements.companySelect.innerHTML = '<option value="ALL">🏢 All Companies (' + companiesMap.size + ')</option>';
+  elements.companyTagsCloud.innerHTML = '';
+
+  const sortedCompanies = Array.from(companiesMap.entries()).sort((a, b) => b[1] - a[1]);
+
+  sortedCompanies.forEach(([compName, count]) => {
+    // Add option to select
+    const opt = document.createElement('option');
+    opt.value = compName;
+    opt.textContent = compName + ' (' + count + ')';
+    if (selectedCompany === compName) opt.selected = true;
+    elements.companySelect.appendChild(opt);
+
+    // Add tag pill to cloud
+    const tagBtn = document.createElement('button');
+    tagBtn.className = 'company-tag-btn ' + (selectedCompany === compName ? 'active' : '');
+    tagBtn.innerHTML = compName + ' <span style="opacity:0.7;">(' + count + ')</span>';
+    tagBtn.onclick = () => selectCompany(compName);
+    elements.companyTagsCloud.appendChild(tagBtn);
+  });
+}
+
+function getCategoryIcon(catName) {
+  const icons = {
+    'HTML': '<i class="fa-brands fa-html5" style="color:#f97316;"></i>',
+    'CSS': '<i class="fa-brands fa-css3-alt" style="color:#0ea5e9;"></i>',
+    'JavaScript': '<i class="fa-brands fa-js" style="color:#eab308;"></i>',
+    'TypeScript': '<i class="fa-solid fa-code" style="color:#3b82f6;"></i>',
+    'React': '<i class="fa-brands fa-react" style="color:#06b6d4;"></i>',
+    'Next.js': '<i class="fa-solid fa-n"></i>',
+    'Node.js': '<i class="fa-brands fa-node-js" style="color:#22c55e;"></i>',
+    'Express.js': '<i class="fa-solid fa-server" style="color:#a855f7;"></i>',
+    'MongoDB': '<i class="fa-solid fa-database" style="color:#10b981;"></i>',
+    'SQL': '<i class="fa-solid fa-table" style="color:#f43f5e;"></i>',
+    'System Design': '<i class="fa-solid fa-diagram-project" style="color:#8b5cf6;"></i>',
+    'Web APIs': '<i class="fa-solid fa-network-wired" style="color:#38bdf8;"></i>',
+    'Authentication': '<i class="fa-solid fa-shield-halved" style="color:#eab308;"></i>',
+    'Performance': '<i class="fa-solid fa-bolt" style="color:#f97316;"></i>',
+    'AWS': '<i class="fa-brands fa-aws" style="color:#ff9900;"></i>',
+    'DevOps': '<i class="fa-solid fa-infinity" style="color:#6366f1;"></i>',
+    'Git': '<i class="fa-brands fa-git-alt" style="color:#f05032;"></i>',
+    'Coding': '<i class="fa-solid fa-laptop-code" style="color:#ec4899;"></i>'
+  };
+  return icons[catName] || '<i class="fa-solid fa-folder"></i>';
+}
+
+// Event Listeners Setup
+function setupEventListeners() {
+  if (elements.themeToggleBtn) {
+    elements.themeToggleBtn.addEventListener('click', toggleTheme);
+  }
+
+  // Search input
+  elements.searchInput.addEventListener('input', (e) => {
+    searchQuery = e.target.value.toLowerCase().trim();
+    elements.clearSearchBtn.style.display = searchQuery ? 'block' : 'none';
+    applyFiltersAndRender();
+  });
+
+  elements.clearSearchBtn.addEventListener('click', () => {
+    elements.searchInput.value = '';
+    searchQuery = '';
+    elements.clearSearchBtn.style.display = 'none';
+    applyFiltersAndRender();
+  });
+
+  // Company Select
+  elements.companySelect.addEventListener('change', (e) => {
+    selectCompany(e.target.value);
+  });
+
+  // Difficulty Pills
+  elements.diffBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const diff = btn.getAttribute('data-diff');
+      if (selectedDifficulties.has(diff)) {
+        if (selectedDifficulties.size > 1) {
+          selectedDifficulties.delete(diff);
+          btn.classList.remove('active');
+        } else {
+          showToast('⚠️ At least one difficulty must be selected');
+          return;
+        }
+      } else {
+        selectedDifficulties.add(diff);
+        btn.classList.add('active');
+      }
+      applyFiltersAndRender();
+    });
+  });
+
+  // Sort Select
+  elements.sortSelect.addEventListener('change', (e) => {
+    sortBy = e.target.value;
+    applyFiltersAndRender();
+  });
+
+  // View Mode
+  elements.gridModeBtn.addEventListener('click', () => setViewMode('grid'));
+  elements.listModeBtn.addEventListener('click', () => setViewMode('list'));
+
+  // Quick Action Buttons
+  elements.resetFiltersBtn.addEventListener('click', resetFilters);
+  elements.randomQuestionBtn.addEventListener('click', showRandomQuestion);
+  elements.bookmarkFilterBtn.addEventListener('click', toggleBookmarkFilter);
+
+  // Back to Top Button
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      elements.backToTopBtn.classList.add('visible');
+    } else {
+      elements.backToTopBtn.classList.remove('visible');
+    }
+  });
+
+  elements.backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+function selectCategory(catName) {
+  selectedCategory = catName;
+  renderSidebarControls();
+  applyFiltersAndRender();
+}
+
+function selectCompany(compName) {
+  selectedCompany = compName;
+  elements.companySelect.value = compName;
+  renderSidebarControls();
+  applyFiltersAndRender();
+}
+
+function setViewMode(mode) {
+  viewMode = mode;
+  if (mode === 'grid') {
+    elements.questionsGrid.classList.remove('list-view');
+    elements.gridModeBtn.classList.add('active');
+    elements.listModeBtn.classList.remove('active');
+  } else {
+    elements.questionsGrid.classList.add('list-view');
+    elements.listModeBtn.classList.add('active');
+    elements.gridModeBtn.classList.remove('active');
+  }
+}
+
+function resetFilters() {
+  selectedCategory = 'ALL';
+  selectedCompany = 'ALL';
+  selectedDifficulties = new Set(['Easy', 'Medium', 'Hard']);
+  searchQuery = '';
+  showOnlyBookmarked = false;
+  sortBy = 'default';
+  
+  elements.searchInput.value = '';
+  elements.clearSearchBtn.style.display = 'none';
+  elements.sortSelect.value = 'default';
+  elements.bookmarkFilterBtn.classList.remove('accent');
+  elements.bookmarkFilterBtn.innerHTML = '<i class="fa-regular fa-star"></i> Bookmarks';
+  
+  elements.diffBtns.forEach(btn => btn.classList.add('active'));
+  
+  renderSidebarControls();
+  applyFiltersAndRender();
+  showToast('🔄 Filters reset to default');
+}
+
+function toggleBookmarkFilter() {
+  showOnlyBookmarked = !showOnlyBookmarked;
+  if (showOnlyBookmarked) {
+    elements.bookmarkFilterBtn.classList.add('accent');
+    elements.bookmarkFilterBtn.innerHTML = '<i class="fa-solid fa-star"></i> Bookmarked (' + bookmarkedIds.size + ')';
+  } else {
+    elements.bookmarkFilterBtn.classList.remove('accent');
+    elements.bookmarkFilterBtn.innerHTML = '<i class="fa-regular fa-star"></i> Bookmarks';
+  }
+  applyFiltersAndRender();
+}
+
+function showRandomQuestion() {
+  if (allQuestions.length === 0) return;
+  const randomIndex = Math.floor(Math.random() * allQuestions.length);
+  const q = allQuestions[randomIndex];
+  
+  resetFilters();
+  searchQuery = q.id.toLowerCase();
+  elements.searchInput.value = q.id;
+  elements.clearSearchBtn.style.display = 'block';
+  applyFiltersAndRender();
+  showToast('🎲 Question ID: ' + q.id);
+}
+
+// Filtering & Render Core Logic
+function applyFiltersAndRender() {
+  let filtered = allQuestions.filter(q => {
+    // 1. Category Filter
+    if (selectedCategory !== 'ALL' && q.category !== selectedCategory) return false;
+
+    // 2. Company Filter
+    if (selectedCompany !== 'ALL' && !q.companies.includes(selectedCompany)) return false;
+
+    // 3. Difficulty Filter
+    if (!selectedDifficulties.has(q.difficulty)) return false;
+
+    // 4. Bookmarks Filter
+    if (showOnlyBookmarked && !bookmarkedIds.has(q.id)) return false;
+
+    // 5. Search Query
+    if (searchQuery) {
+      const matchText = (q.question + ' ' + q.id + ' ' + q.category + ' ' + (q.companies.join(' '))).toLowerCase();
+      if (!matchText.includes(searchQuery)) return false;
+    }
+
+    return true;
+  });
+
+  // Sorting
+  if (sortBy === 'companies') {
+    filtered.sort((a, b) => (b.companies ? b.companies.length : 0) - (a.companies ? a.companies.length : 0));
+  } else if (sortBy === 'category') {
+    filtered.sort((a, b) => a.category.localeCompare(b.category));
+  } else if (sortBy === 'difficulty') {
+    const diffMap = { 'Easy': 1, 'Medium': 2, 'Hard': 3 };
+    filtered.sort((a, b) => diffMap[a.difficulty] - diffMap[b.difficulty]);
+  }
+
+  // Update Header Stats
+  updateHeaderStats(filtered.length);
+
+  // Render Active Filter Badges Bar
+  renderActiveFilterBadges();
+
+  // Render Cards
+  renderQuestionCards(filtered);
+}
+
+function updateHeaderStats(filteredCount) {
+  if (elements.totalQuestionsVal) elements.totalQuestionsVal.textContent = allQuestions.length;
+  if (elements.filteredQuestionsVal) elements.filteredQuestionsVal.textContent = filteredCount;
+  if (elements.bookmarkedVal) elements.bookmarkedVal.textContent = bookmarkedIds.size;
+  if (elements.masteredVal) elements.masteredVal.textContent = masteredIds.size;
+  if (elements.companiesCountVal) elements.companiesCountVal.textContent = companiesMap.size;
+  
+  if (elements.resultsCount) elements.resultsCount.textContent = filteredCount + ' Questions Found';
+
+  // Mastered progress
+  const pct = allQuestions.length > 0 ? Math.round((masteredIds.size / allQuestions.length) * 100) : 0;
+  if (elements.masteredProgressFill) elements.masteredProgressFill.style.width = pct + '%';
+}
+
+function renderActiveFilterBadges() {
+  if (!elements.activeFiltersBar) return;
+  elements.activeFiltersBar.innerHTML = '';
+  
+  if (selectedCategory !== 'ALL') {
+    addFilterBadge('Category: ' + selectedCategory, () => selectCategory('ALL'));
+  }
+  if (selectedCompany !== 'ALL') {
+    addFilterBadge('Company: ' + selectedCompany, () => selectCompany('ALL'));
+  }
+  if (selectedDifficulties.size < 3) {
+    addFilterBadge('Difficulty: ' + Array.from(selectedDifficulties).join(', '), () => {
+      selectedDifficulties = new Set(['Easy', 'Medium', 'Hard']);
+      elements.diffBtns.forEach(btn => btn.classList.add('active'));
+      applyFiltersAndRender();
+    });
+  }
+  if (searchQuery) {
+    addFilterBadge('Search: "' + searchQuery + '"', () => {
+      elements.searchInput.value = '';
+      searchQuery = '';
+      elements.clearSearchBtn.style.display = 'none';
+      applyFiltersAndRender();
+    });
+  }
+  if (showOnlyBookmarked) {
+    addFilterBadge('Only Bookmarked', () => toggleBookmarkFilter());
+  }
+}
+
+function addFilterBadge(text, onRemove) {
+  const badge = document.createElement('span');
+  badge.className = 'filter-badge';
+  badge.innerHTML = text + ' <i class="fa-solid fa-xmark filter-badge-remove"></i>';
+  badge.querySelector('.filter-badge-remove').onclick = onRemove;
+  elements.activeFiltersBar.appendChild(badge);
+}
+
+// Render Question Cards Grid
+function renderQuestionCards(questions) {
+  if (!elements.questionsGrid) return;
+  elements.questionsGrid.innerHTML = '';
+
+  if (questions.length === 0) {
+    elements.questionsGrid.innerHTML = `
+      <div class="no-results">
+        <div class="no-results-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+        <div class="no-results-title">No Questions Match Your Filters</div>
+        <div class="no-results-text">Try broadening your category selection, company filter, or search keywords.</div>
+        <button class="action-btn accent" onclick="resetFilters()">
+          <i class="fa-solid fa-rotate-left"></i> Reset All Filters
+        </button>
+      </div>
+    `;
+    return;
+  }
+
+  questions.forEach(q => {
+    const isBookmarked = bookmarkedIds.has(q.id);
+    const isMastered = masteredIds.has(q.id);
+
+    const card = document.createElement('div');
+    card.className = 'question-card ' + (isBookmarked ? 'is-bookmarked' : '') + ' ' + (isMastered ? 'is-mastered' : '');
+
+    const formattedQuestion = formatQuestionText(q.question);
+
+    let companiesHtml = '';
+    if (q.companies && q.companies.length > 0) {
+      const compBadges = q.companies.map(comp => {
+        const safeComp = comp.replace(/'/g, "\\'");
+        return `<span class="badge-company" onclick="selectCompany('${safeComp}')" title="Click to filter by ${comp}"><i class="fa-regular fa-building"></i> ${comp}</span>`;
+      }).join('');
+
+      companiesHtml = `
+        <div class="companies-section">
+          <span class="companies-label">Asked by:</span>
+          ${compBadges}
+        </div>
+      `;
+    }
+
+    card.innerHTML = `
+      <div class="card-top-row">
+        <div class="card-badges">
+          <span class="badge-cat" data-category="${q.category}">${getCategoryIcon(q.category)} ${q.category}</span>
+          <span class="badge-diff ${q.difficulty}">${q.difficulty}</span>
+        </div>
+        <span class="card-id">#${q.id}</span>
+      </div>
+
+      <div class="question-body">
+        ${formattedQuestion}
+      </div>
+
+      ${companiesHtml}
+
+      <div class="card-footer">
+        <div class="card-actions">
+          <button class="icon-btn bookmark-btn ${isBookmarked ? 'active' : ''}" onclick="toggleBookmark('${q.id}', this)" title="${isBookmarked ? 'Remove Bookmark' : 'Bookmark Question'}">
+            <i class="${isBookmarked ? 'fa-solid' : 'fa-regular'} fa-star"></i>
+          </button>
+          
+          <button class="icon-btn mastered-btn ${isMastered ? 'active' : ''}" onclick="toggleMastered('${q.id}', this)" title="${isMastered ? 'Mark as Unmastered' : 'Mark as Mastered'}">
+            <i class="fa-solid fa-check"></i>
+          </button>
+        </div>
+
+        <button class="icon-btn" onclick="copyQuestionText('${q.id}')" title="Copy Question Text">
+          <i class="fa-regular fa-copy"></i>
+        </button>
+      </div>
+    `;
+
+    elements.questionsGrid.appendChild(card);
+  });
+}
+
+function formatQuestionText(text) {
+  if (!text) return '';
+  let safeText = text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+
+  return safeText.replace(/`([^`]+)`/g, '<code>$1</code>');
+}
+
+// Question Action Handlers
+window.toggleBookmark = function(id, btn) {
+  if (bookmarkedIds.has(id)) {
+    bookmarkedIds.delete(id);
+    showToast('⭐ Removed from Bookmarks');
+  } else {
+    bookmarkedIds.add(id);
+    showToast('🌟 Added to Bookmarks');
+  }
+  localStorage.setItem('techprep_bookmarks', JSON.stringify(Array.from(bookmarkedIds)));
+  applyFiltersAndRender();
+};
+
+window.toggleMastered = function(id, btn) {
+  if (masteredIds.has(id)) {
+    masteredIds.delete(id);
+    showToast('↩️ Marked as Unmastered');
+  } else {
+    masteredIds.add(id);
+    showToast('🎉 Question Mastered!');
+  }
+  localStorage.setItem('techprep_mastered', JSON.stringify(Array.from(masteredIds)));
+  applyFiltersAndRender();
+};
+
+window.copyQuestionText = function(id) {
+  const q = allQuestions.find(item => item.id === id);
+  if (!q) return;
+
+  const textToCopy = `[${q.category} - ${q.difficulty}] ${q.question}`;
+  navigator.clipboard.writeText(textToCopy).then(() => {
+    showToast('📋 Question copied to clipboard!');
+  }).catch(() => {
+    showToast('📋 Copied question text');
+  });
+};
+
+// Toast Alerts
+function showToast(message) {
+  if (!elements.toastContainer) return;
+  const toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.innerHTML = message;
+  
+  elements.toastContainer.appendChild(toast);
+  
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateY(20px)';
+    toast.style.transition = 'all 0.3s ease';
+    setTimeout(() => toast.remove(), 300);
+  }, 2500);
+}
+
+/* ==========================================================================
+   Add Question Modal & Data Management
+   ========================================================================== */
+
+function getCategoryPrefix(categoryName) {
+  if (!categoryName) return 'q';
+  const name = categoryName.trim().toLowerCase();
+  const prefixMap = {
+    'javascript': 'js',
+    'react': 'react',
+    'node.js': 'node',
+    'nodejs': 'node',
+    'express.js': 'express',
+    'expressjs': 'express',
+    'html': 'html',
+    'css': 'css',
+    'typescript': 'ts',
+    'mongodb': 'mongo',
+    'sql': 'sql',
+    'system design': 'sd',
+    'web apis': 'api',
+    'authentication': 'auth',
+    'performance': 'perf',
+    'aws': 'aws',
+    'devops': 'devops',
+    'git': 'git',
+    'coding': 'coding',
+    'next.js': 'next'
+  };
+  if (prefixMap[name]) return prefixMap[name];
+  return name.replace(/[^a-z0-9]/g, '').slice(0, 5) || 'q';
+}
+
+function generateNextQuestionId(categoryName) {
+  const prefix = getCategoryPrefix(categoryName);
+  const regex = new RegExp('^' + prefix + '-(\\d+)$', 'i');
+  let maxIdNum = 0;
+
+  allQuestions.forEach(q => {
+    const match = q.id.match(regex);
+    if (match) {
+      const num = parseInt(match[1], 10);
+      if (!isNaN(num) && num > maxIdNum) {
+        maxIdNum = num;
+      }
+    }
+  });
+
+  const nextNum = maxIdNum + 1;
+  return `${prefix}-${String(nextNum).padStart(3, '0')}`;
+}
+
+function initAddQuestionModal() {
+  elements.addQuestionModal = document.getElementById('addQuestionModal');
+  elements.openAddModalBtn = document.getElementById('openAddModalBtn');
+  elements.closeModalBtn = document.getElementById('closeModalBtn');
+  elements.cancelModalBtn = document.getElementById('cancelModalBtn');
+  elements.resetFormBtn = document.getElementById('resetFormBtn');
+  elements.exportDataBtn = document.getElementById('exportDataBtn');
+  elements.addQuestionForm = document.getElementById('addQuestionForm');
+  elements.newCatSelect = document.getElementById('newCatSelect');
+  elements.customCatGroup = document.getElementById('customCatGroup');
+  elements.newCustomCatInput = document.getElementById('newCustomCatInput');
+  elements.newQuestionId = document.getElementById('newQuestionId');
+  elements.autoGenIdBtn = document.getElementById('autoGenIdBtn');
+  elements.newQuestionText = document.getElementById('newQuestionText');
+  elements.newCompanyInput = document.getElementById('newCompanyInput');
+  elements.addCompanyTagBtn = document.getElementById('addCompanyTagBtn');
+  elements.quickCompanyPills = document.getElementById('quickCompanyPills');
+  elements.selectedCompaniesContainer = document.getElementById('selectedCompaniesContainer');
+  elements.newAnswerText = document.getElementById('newAnswerText');
+  elements.modalCardPreview = document.getElementById('modalCardPreview');
+
+  if (!elements.addQuestionModal) return;
+
+  if (elements.openAddModalBtn) {
+    elements.openAddModalBtn.addEventListener('click', openAddModal);
+  }
+
+  if (elements.exportDataBtn) {
+    elements.exportDataBtn.addEventListener('click', exportQuestionsJSON);
+  }
+
+  if (elements.closeModalBtn) elements.closeModalBtn.addEventListener('click', closeAddModal);
+  if (elements.cancelModalBtn) elements.cancelModalBtn.addEventListener('click', closeAddModal);
+
+  elements.addQuestionModal.addEventListener('click', (e) => {
+    if (e.target === elements.addQuestionModal) closeAddModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && elements.addQuestionModal.classList.contains('open')) {
+      closeAddModal();
+    }
+  });
+
+  elements.newCatSelect.addEventListener('change', () => {
+    if (elements.newCatSelect.value === '__NEW_CATEGORY__') {
+      elements.customCatGroup.style.display = 'flex';
+      elements.newCustomCatInput.required = true;
+      elements.newCustomCatInput.focus();
+      elements.newQuestionId.value = generateNextQuestionId(elements.newCustomCatInput.value || 'Custom');
+    } else {
+      elements.customCatGroup.style.display = 'none';
+      elements.newCustomCatInput.required = false;
+      elements.newQuestionId.value = generateNextQuestionId(elements.newCatSelect.value);
+    }
+    updateModalPreview();
+  });
+
+  elements.newCustomCatInput.addEventListener('input', () => {
+    elements.newQuestionId.value = generateNextQuestionId(elements.newCustomCatInput.value || 'Custom');
+    updateModalPreview();
+  });
+
+  elements.autoGenIdBtn.addEventListener('click', () => {
+    const cat = getSelectedCategoryFromModal();
+    elements.newQuestionId.value = generateNextQuestionId(cat);
+    showToast('✨ Auto-generated ID: ' + elements.newQuestionId.value);
+    updateModalPreview();
+  });
+
+  elements.addCompanyTagBtn.addEventListener('click', addCompanyTagFromInput);
+  elements.newCompanyInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ',') {
+      e.preventDefault();
+      addCompanyTagFromInput();
+    }
+  });
+
+  const diffRadios = elements.addQuestionForm.querySelectorAll('input[name="difficulty"]');
+  diffRadios.forEach(radio => radio.addEventListener('change', updateModalPreview));
+
+  elements.newQuestionText.addEventListener('input', updateModalPreview);
+  elements.newQuestionId.addEventListener('input', updateModalPreview);
+  elements.newAnswerText.addEventListener('input', updateModalPreview);
+
+  elements.resetFormBtn.addEventListener('click', () => {
+    resetModalForm();
+    showToast('🔄 Form reset');
+  });
+
+  elements.addQuestionForm.addEventListener('submit', handleAddQuestionSubmit);
+}
+
+function getSelectedCategoryFromModal() {
+  if (elements.newCatSelect.value === '__NEW_CATEGORY__') {
+    return elements.newCustomCatInput.value.trim() || 'General';
+  }
+  return elements.newCatSelect.value || 'JavaScript';
+}
+
+function openAddModal() {
+  populateModalCategories();
+  populateQuickCompanyPills();
+  resetModalForm();
+  
+  if (selectedCategory && selectedCategory !== 'ALL') {
+    elements.newCatSelect.value = selectedCategory;
+  } else {
+    elements.newCatSelect.value = categories.length > 0 ? categories[0].name : 'JavaScript';
+  }
+
+  elements.newQuestionId.value = generateNextQuestionId(getSelectedCategoryFromModal());
+  updateModalPreview();
+
+  elements.addQuestionModal.classList.add('open');
+  elements.addQuestionModal.setAttribute('aria-hidden', 'false');
+  setTimeout(() => elements.newQuestionText.focus(), 150);
+}
+
+function closeAddModal() {
+  elements.addQuestionModal.classList.remove('open');
+  elements.addQuestionModal.setAttribute('aria-hidden', 'true');
+}
+
+function populateModalCategories() {
+  if (!elements.newCatSelect) return;
+  elements.newCatSelect.innerHTML = '<option value="" disabled>Select Category</option>';
+
+  categories.forEach(cat => {
+    const opt = document.createElement('option');
+    opt.value = cat.name;
+    opt.textContent = `${cat.name} (${cat.count} questions)`;
+    elements.newCatSelect.appendChild(opt);
+  });
+
+  const newOpt = document.createElement('option');
+  newOpt.value = '__NEW_CATEGORY__';
+  newOpt.textContent = '➕ Add New Category...';
+  elements.newCatSelect.appendChild(newOpt);
+}
+
+function populateQuickCompanyPills() {
+  if (!elements.quickCompanyPills) return;
+  elements.quickCompanyPills.innerHTML = '';
+
+  const popular = ['Inodeed', 'Neosoft', 'Thought Win', 'Sketchbramha', 'Questions Komal', 'Amazon', 'Google', 'Microsoft', 'Trootech'];
+  popular.forEach(comp => {
+    const pill = document.createElement('button');
+    pill.type = 'button';
+    pill.className = 'quick-pill';
+    pill.innerHTML = `<i class="fa-solid fa-plus" style="font-size:0.7rem;"></i> ${comp}`;
+    pill.onclick = () => {
+      addedCompanyTagsSet.add(comp);
+      renderCompanyTags();
+      updateModalPreview();
+    };
+    elements.quickCompanyPills.appendChild(pill);
+  });
+}
+
+function addCompanyTagFromInput() {
+  const val = elements.newCompanyInput.value.trim().replace(/,/g, '');
+  if (val) {
+    addedCompanyTagsSet.add(val);
+    elements.newCompanyInput.value = '';
+    renderCompanyTags();
+    updateModalPreview();
+  }
+}
+
+function renderCompanyTags() {
+  if (!elements.selectedCompaniesContainer) return;
+  elements.selectedCompaniesContainer.innerHTML = '';
+
+  addedCompanyTagsSet.forEach(comp => {
+    const chip = document.createElement('span');
+    chip.className = 'tag-chip';
+    chip.innerHTML = `
+      <i class="fa-regular fa-building"></i> ${comp}
+      <i class="fa-solid fa-xmark tag-chip-remove" onclick="removeCompanyTag('${comp.replace(/'/g, "\\'")}')"></i>
+    `;
+    elements.selectedCompaniesContainer.appendChild(chip);
+  });
+}
+
+window.removeCompanyTag = function(comp) {
+  addedCompanyTagsSet.delete(comp);
+  renderCompanyTags();
+  updateModalPreview();
+};
+
+function resetModalForm() {
+  elements.addQuestionForm.reset();
+  elements.customCatGroup.style.display = 'none';
+  elements.newCustomCatInput.required = false;
+  addedCompanyTagsSet.clear();
+  renderCompanyTags();
+  updateModalPreview();
+}
+
+function updateModalPreview() {
+  if (!elements.modalCardPreview) return;
+
+  const category = getSelectedCategoryFromModal();
+  const id = elements.newQuestionId.value.trim() || 'ID';
+  const questionText = elements.newQuestionText.value.trim() || 'Question text will appear here as you type...';
+  const selectedDiffRadio = elements.addQuestionForm.querySelector('input[name="difficulty"]:checked');
+  const difficulty = selectedDiffRadio ? selectedDiffRadio.value : 'Easy';
+  const answerText = elements.newAnswerText.value.trim();
+
+  const formattedQuestion = formatQuestionText(questionText);
+
+  let companiesHtml = '';
+  if (addedCompanyTagsSet.size > 0) {
+    const compBadges = Array.from(addedCompanyTagsSet).map(comp => 
+      `<span class="badge-company"><i class="fa-regular fa-building"></i> ${comp}</span>`
+    ).join('');
+    companiesHtml = `<div class="companies-section"><span class="companies-label">Asked by:</span> ${compBadges}</div>`;
+  }
+
+  let answerHtml = '';
+  if (answerText) {
+    answerHtml = `
+      <div class="answer-section">
+        <div class="answer-content">
+          <i class="fa-solid fa-lightbulb" style="color:var(--accent-primary); margin-right:6px;"></i>
+          ${formatQuestionText(answerText)}
+        </div>
+      </div>
+    `;
+  }
+
+  elements.modalCardPreview.innerHTML = `
+    <div class="card-top-row">
+      <div class="card-badges">
+        <span class="badge-cat" data-category="${category}">${getCategoryIcon(category)} ${category}</span>
+        <span class="badge-diff ${difficulty}">${difficulty}</span>
+      </div>
+      <span class="card-id">#${id}</span>
+    </div>
+
+    <div class="question-body">
+      ${formattedQuestion}
+    </div>
+
+    ${companiesHtml}
+    ${answerHtml}
+  `;
+}
+
+function handleAddQuestionSubmit(e) {
+  e.preventDefault();
+
+  const category = getSelectedCategoryFromModal();
+  const id = elements.newQuestionId.value.trim();
+  const question = elements.newQuestionText.value.trim();
+  const selectedDiffRadio = elements.addQuestionForm.querySelector('input[name="difficulty"]:checked');
+  const difficulty = selectedDiffRadio ? selectedDiffRadio.value : 'Easy';
+  const answer = elements.newAnswerText.value.trim();
+  const companies = Array.from(addedCompanyTagsSet);
+
+  if (!category || !id || !question) {
+    showToast('⚠️ Please fill in all required fields (*)');
+    return;
+  }
+
+  const duplicate = allQuestions.find(q => q.id.toLowerCase() === id.toLowerCase());
+  if (duplicate) {
+    showToast(`⚠️ Question ID #${id} already exists! Auto-updating ID.`);
+    elements.newQuestionId.value = generateNextQuestionId(category);
+    return;
+  }
+
+  const newQuestion = {
+    id,
+    question,
+    difficulty,
+    companies
+  };
+
+  if (answer) {
+    newQuestion.answer = answer;
+  }
+
+  customQuestions.push({
+    ...newQuestion,
+    category
+  });
+  localStorage.setItem('techprep_custom_questions', JSON.stringify(customQuestions));
+
+  let catObj = rawData.categories.find(c => c.name.toLowerCase() === category.toLowerCase());
+  if (!catObj) {
+    catObj = { name: category, questions: [] };
+    rawData.categories.push(catObj);
+  }
+  catObj.questions.push(newQuestion);
+
+  processData();
+  renderSidebarControls();
+
+  closeAddModal();
+
+  if (selectedCategory !== 'ALL' && selectedCategory !== category) {
+    selectedCategory = category;
+  }
+  searchQuery = '';
+  elements.searchInput.value = '';
+
+  applyFiltersAndRender();
+
+  setTimeout(() => {
+    const cardEl = document.getElementById(`q-card-${id}`);
+    if (cardEl) {
+      cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      cardEl.classList.add('newly-added-pulse');
+      setTimeout(() => cardEl.classList.remove('newly-added-pulse'), 5000);
+    }
+  }, 200);
+
+  showToast(`🎉 Question #${id} added successfully!`);
+}
+
+function exportQuestionsJSON() {
+  if (!rawData) return;
+  const jsonStr = JSON.stringify(rawData, null, 2);
+  const blob = new Blob([jsonStr], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'interview_questions.json';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+
+  showToast('📥 Exported interview_questions.json successfully!');
+}
+
+window.toggleAnswer = function(btn) {
+  const content = btn.nextElementSibling;
+  const caret = btn.querySelector('.caret');
+  if (content.classList.contains('hidden')) {
+    content.classList.remove('hidden');
+    caret.classList.replace('fa-chevron-down', 'fa-chevron-up');
+  } else {
+    content.classList.add('hidden');
+    caret.classList.replace('fa-chevron-up', 'fa-chevron-down');
+  }
+};
