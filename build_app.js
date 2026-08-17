@@ -73,7 +73,13 @@ function initElements() {
     
     questionsGrid: document.getElementById('questionsGrid'),
     toastContainer: document.getElementById('toastContainer'),
-    backToTopBtn: document.getElementById('backToTopBtn')
+    backToTopBtn: document.getElementById('backToTopBtn'),
+
+    mobileFilterToggleBtn: document.getElementById('mobileFilterToggleBtn'),
+    sidebarCloseBtn: document.getElementById('sidebarCloseBtn'),
+    sidebarOverlay: document.getElementById('sidebarOverlay'),
+    sidebar: document.querySelector('.sidebar'),
+    mobileActiveFilterBadge: document.getElementById('mobileActiveFilterBadge')
   };
 }
 
@@ -292,6 +298,25 @@ function setupEventListeners() {
   elements.backToTopBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
+
+  // Mobile Off-Canvas Sidebar Controls
+  if (elements.mobileFilterToggleBtn) {
+    elements.mobileFilterToggleBtn.addEventListener('click', () => {
+      if (elements.sidebar) elements.sidebar.classList.add('open');
+      if (elements.sidebarOverlay) elements.sidebarOverlay.classList.add('open');
+    });
+  }
+  if (elements.sidebarCloseBtn) {
+    elements.sidebarCloseBtn.addEventListener('click', closeMobileSidebar);
+  }
+  if (elements.sidebarOverlay) {
+    elements.sidebarOverlay.addEventListener('click', closeMobileSidebar);
+  }
+}
+
+function closeMobileSidebar() {
+  if (elements.sidebar) elements.sidebar.classList.remove('open');
+  if (elements.sidebarOverlay) elements.sidebarOverlay.classList.remove('open');
 }
 
 function selectCategory(catName) {
@@ -402,6 +427,13 @@ function applyFiltersAndRender() {
 
   // Update Header Stats
   updateHeaderStats(filtered.length);
+
+  // Update Mobile Filter Dot Badge
+  const hasActiveFilters = selectedCategory !== 'ALL' || selectedCompany !== 'ALL' || selectedDifficulties.size < 3 || searchQuery || showOnlyBookmarked;
+  if (elements.mobileActiveFilterBadge) {
+    if (hasActiveFilters) elements.mobileActiveFilterBadge.classList.add('active');
+    else elements.mobileActiveFilterBadge.classList.remove('active');
+  }
 
   // Render Active Filter Badges Bar
   renderActiveFilterBadges();

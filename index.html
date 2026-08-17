@@ -111,13 +111,19 @@
       </div>
     </section>
 
+    <!-- Sidebar Drawer Overlay for Mobile -->
+    <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
     <!-- Main Grid Layout -->
     <main class="app-grid">
       <!-- Sidebar Filters Panel -->
       <aside class="sidebar" aria-label="Filters">
         <div class="filter-header">
           <h2 class="filter-title"><i class="fa-solid fa-sliders"></i> Filter Questions</h2>
-          <button id="resetFiltersBtn" class="reset-link">Reset All</button>
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <button id="resetFiltersBtn" class="reset-link">Reset All</button>
+            <button id="sidebarCloseBtn" class="sidebar-close-btn" title="Close Filters">&times;</button>
+          </div>
         </div>
 
         <!-- Search Input -->
@@ -169,6 +175,10 @@
       <section class="content-area">
         <!-- Content Toolbar -->
         <div class="content-header">
+          <button id="mobileFilterToggleBtn" class="action-btn mobile-filter-btn" title="Toggle Filters & Categories">
+            <i class="fa-solid fa-sliders"></i> <span>Filters & Categories</span> <span id="mobileActiveFilterBadge" class="filter-badge-dot"></span>
+          </button>
+
           <div class="results-info">
             <span id="resultsCount" class="results-count">Showing Questions</span>
             <div id="activeFiltersBar" class="active-filters-bar"></div>
